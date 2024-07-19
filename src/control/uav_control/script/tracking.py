@@ -52,7 +52,7 @@ class Traj():
                 poss = poss[2:]
                 yaws = yaws[2:]
                 ts = ts[2:]
-                print(poss)
+                #print(poss)
 
         self._poss = np.array(poss)
         self._yaws = np.array(yaws)
@@ -214,7 +214,7 @@ def odom_cb(msg: Odometry):
 
         poss, yaws, ts = trajectory.sample(p, 0.1, 5)
         print("##############################################")
-        # print(poss)
+        print(poss)
         # print(p, v, q)
         res = tracker.solve(x0, poss.reshape(-1), yaws.reshape(-1))
         x = res['x'].full().flatten()
@@ -226,10 +226,10 @@ def odom_cb(msg: Odometry):
         u.body_rate.x = wx
         u.body_rate.y = wy
         u.body_rate.z = wz
-        u.thrust = min(Tt/quad._a_z_max, 0.7)
+        u.thrust = min(Tt/quad._a_z_max, 0.71)
         # u.thrust = 0
     if state_machine.data < 9:
-        u.thrust = min(u.thrust, 0.7)
+        u.thrust = min(u.thrust, 0.71)
         setpoint_raw_pub.publish(u)
         print(u.thrust, u.body_rate.x, u.body_rate.y, u.body_rate.z)
 

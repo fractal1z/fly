@@ -8,7 +8,8 @@ Panels:
         - /Mapping1
         - /Mapping1/simulation_map1/Autocompute Value Bounds1
         - /Odometry1
-        - /Odometry1/Shape1
+        - /Odometry2
+        - /Odometry2/Shape1
       Splitter Ratio: 0.5
     Tree Height: 1206
   - Class: rviz/Selection
@@ -71,7 +72,7 @@ Visualization Manager:
           Marker Topic: /ego_planner_node/goal_point
           Name: goal_point
           Namespaces:
-            {}
+            "": true
           Queue Size: 100
           Value: true
         - Class: rviz/Marker
@@ -87,7 +88,7 @@ Visualization Manager:
           Marker Topic: /ego_planner_node/optimal_list
           Name: optimal_traj
           Namespaces:
-            {}
+            "": true
           Queue Size: 100
           Value: true
         - Class: rviz/Marker
@@ -157,8 +158,8 @@ Visualization Manager:
         - Alpha: 1
           Autocompute Intensity Bounds: true
           Autocompute Value Bounds:
-            Max Value: 2.9649999141693115
-            Min Value: 0.014999999664723873
+            Max Value: 2.8499999046325684
+            Min Value: -0.05000000074505806
             Value: true
           Axis: Z
           Channel Name: intensity
@@ -254,7 +255,42 @@ Visualization Manager:
           Value: true
         Value: true
       Enabled: true
-      Keep: 0
+      Keep: 1
+      Name: Odometry
+      Position Tolerance: 0.10000000149011612
+      Queue Size: 10
+      Shape:
+        Alpha: 1
+        Axes Length: 1
+        Axes Radius: 0.10000000149011612
+        Color: 255; 25; 0
+        Head Length: 0.30000001192092896
+        Head Radius: 0.10000000149011612
+        Shaft Length: 1
+        Shaft Radius: 0.05000000074505806
+        Value: Axes
+      Topic: /mavros/local_position/odom
+      Unreliable: false
+      Value: true
+    - Angle Tolerance: 0.10000000149011612
+      Class: rviz/Odometry
+      Covariance:
+        Orientation:
+          Alpha: 0.5
+          Color: 255; 255; 127
+          Color Style: Unique
+          Frame: Local
+          Offset: 1
+          Scale: 1
+          Value: true
+        Position:
+          Alpha: 0.30000001192092896
+          Color: 204; 51; 204
+          Scale: 1
+          Value: true
+        Value: true
+      Enabled: true
+      Keep: 1
       Name: Odometry
       Position Tolerance: 0.10000000149011612
       Queue Size: 10
@@ -298,7 +334,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/ThirdPersonFollower
-      Distance: 12.682233810424805
+      Distance: 13.951705932617188
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -306,17 +342,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: -1.5987541675567627
-        Y: -0.286054790019989
+        X: -0.8034697771072388
+        Y: -1.535306692123413
         Z: 0.47689178586006165
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.8747963905334473
+      Pitch: 0.7547962665557861
       Target Frame: world
-      Yaw: 2.5154266357421875
+      Yaw: 3.2154381275177
     Saved:
       - Class: rviz/ThirdPersonFollower
         Distance: 17.48538589477539
@@ -354,7 +390,7 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 2416
-  X: 609
-  Y: 151
+  X: 144
+  Y: 54
   depth:
     collapsed: false

@@ -23,7 +23,9 @@
 #include <message_filters/time_synchronizer.h>
 
 #include <plan_env/raycast.h>
-
+//111
+#include <std_msgs/Bool.h>
+//111
 #define logit(x) (log((x) / (1 - (x))))
 
 using namespace std;
@@ -57,6 +59,10 @@ struct MappingParameters {
 
   /* camera parameters */
   double cx_, cy_, fx_, fy_;
+  
+  //111
+  double xmax,xmin,ymax,ymin,zmax,zmin;
+  //111
 
   /* depth image projection filtering */
   double depth_filter_maxdist_, depth_filter_mindist_, depth_filter_tolerance_;
@@ -191,7 +197,9 @@ private:
   void depthOdomCallback(const sensor_msgs::ImageConstPtr& img, const nav_msgs::OdometryConstPtr& odom);
   void cloudCallback(const sensor_msgs::PointCloud2ConstPtr& img);
   void odomCallback(const nav_msgs::OdometryConstPtr& odom);
-
+  //111
+  void flyDynamicCallback(const std_msgs::BoolConstPtr &msg);
+  //111
   // update occupancy by raycasting
   void updateOccupancyCallback(const ros::TimerEvent& /*event*/);
   void visCallback(const ros::TimerEvent& /*event*/);
@@ -224,6 +232,9 @@ private:
   SynchronizerImageOdom sync_image_odom_;
 
   ros::Subscriber indep_cloud_sub_, indep_odom_sub_;
+  //111
+  ros::Subscriber fly_dynamic_sub_;
+  //111
   ros::Publisher map_pub_, map_inf_pub_;
   ros::Publisher unknown_pub_;
   ros::Timer occ_timer_, vis_timer_;

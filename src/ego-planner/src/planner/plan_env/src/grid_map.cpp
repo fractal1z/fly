@@ -2,7 +2,10 @@
 
 // #define current_img_ md_.depth_image_[image_cnt_ & 1]
 // #define last_img_ md_.depth_image_[!(image_cnt_ & 1)]
-
+//111
+#include <std_msgs/Bool.h>
+std_msgs::Bool fly_dynamic;
+//111
 void GridMap::initMap(ros::NodeHandle &nh)
 {
   node_ = nh;
@@ -48,6 +51,15 @@ void GridMap::initMap(ros::NodeHandle &nh)
   node_.param("grid_map/frame_id", mp_.frame_id_, string("world"));
   node_.param("grid_map/local_map_margin", mp_.local_map_margin_, 1);
   node_.param("grid_map/ground_height", mp_.ground_height_, 1.0);
+
+  //111
+  node_.param("grid_map/xmax2", mp_.xmax, -1.0);
+  node_.param("grid_map/xmin2", mp_.xmin, -1.0);
+  node_.param("grid_map/ymax2", mp_.ymax, -1.0);
+  node_.param("grid_map/ymin2", mp_.ymin, -1.0);
+  node_.param("grid_map/zmax2", mp_.zmax, -1.0);
+  node_.param("grid_map/zmin2", mp_.zmin, -1.0);
+  //111
 
   mp_.resolution_inv_ = 1 / mp_.resolution_;
   mp_.map_origin_ = Eigen::Vector3d(-x_size / 2.0, -y_size / 2.0, mp_.ground_height_);
@@ -128,7 +140,9 @@ void GridMap::initMap(ros::NodeHandle &nh)
   map_inf_pub_ = node_.advertise<sensor_msgs::PointCloud2>("/grid_map/occupancy_inflate", 10);
 
   unknown_pub_ = node_.advertise<sensor_msgs::PointCloud2>("/grid_map/unknown", 10);
-
+  //111
+  fly_dynamic_sub_ = node_.subscribe<std_msgs::Bool>("/fly_dynamic", 10, &GridMap::flyDynamicCallback, this);
+  //111
   md_.occ_need_update_ = false;
   md_.local_updated_ = false;
   md_.has_first_depth_ = false;
@@ -145,6 +159,13 @@ void GridMap::initMap(ros::NodeHandle &nh)
   // random_device rd;
   // eng_ = default_random_engine(rd());
 }
+
+//111
+void GridMap::flyDynamicCallback(const std_msgs::BoolConstPtr &msg)
+{
+  fly_dynamic.data = msg->data;
+}
+//111
 
 void GridMap::resetBuffer()
 {
@@ -641,6 +662,7 @@ void GridMap::clearAndInflateLocalMap()
         md_.occupancy_buffer_inflate_[toAddress(x, y, ceil_id)] = 1;
       }
   }
+  
 }
 
 void GridMap::visCallback(const ros::TimerEvent & /*event*/)
@@ -732,6 +754,17 @@ void GridMap::cloudCallback(const sensor_msgs::PointCloud2ConstPtr &img)
 
   pcl::PointCloud<pcl::PointXYZ> latest_cloud;
   pcl::fromROSMsg(*img, latest_cloud);
+  
+  // //111
+  // //直接将输入点云清空，这样就不显示地图了
+  //   if(fly_dynamic.data==true){
+  //   // 清空点云
+  //       latest_cloud.points.clear();
+  //       latest_cloud.width = 0;
+  //       latest_cloud.height = 0;
+  //       latest_cloud.is_dense = false;
+  // }
+  // //111
 
   md_.has_cloud_ = true;
 
@@ -769,8 +802,18 @@ void GridMap::cloudCallback(const sensor_msgs::PointCloud2ConstPtr &img)
   for (size_t i = 0; i < latest_cloud.points.size(); ++i)
   {
     pt = latest_cloud.points[i];
-    pt.z += 0.1;
     
+    //111
+    //清除指定范围内点云
+    if (pt.x >= mp_.xmin && pt.x <= mp_.xmax &&
+        pt.y >= mp_.ymin && pt.y <= mp_.ymax &&
+        pt.z >= mp_.zmin && pt.z <= mp_.zmax &&
+        fly_dynamic.data == true)
+      continue;
+    //111
+
+    pt.z += 0.1;
+
     if (std::sqrt(pt.x*pt.x + pt.y*pt.y) <= 1.5)
       continue;
 
@@ -876,6 +919,15 @@ void GridMap::publishMap()
   sensor_msgs::PointCloud2 cloud_msg;
 
   pcl::toROSMsg(cloud, cloud_msg);
+  // //111
+  // if(fly_dynamic.data==true){
+  //   cloud_msg.height = 0;
+  //   cloud_msg.width = 0;
+  //   cloud_msg.is_dense = false;
+  //   cloud_msg.data.clear();
+  //   cloud_msg.fields.clear();
+  // }
+  // //111
   map_pub_.publish(cloud_msg);
 }
 
@@ -926,6 +978,15 @@ void GridMap::publishMapInflate(bool all_info)
   sensor_msgs::PointCloud2 cloud_msg;
 
   pcl::toROSMsg(cloud, cloud_msg);
+  // //111
+  // if(fly_dynamic.data==true){
+  //   cloud_msg.height = 0;
+  //   cloud_msg.width = 0;
+  //   cloud_msg.is_dense = false;
+  //   cloud_msg.data.clear();
+  //   cloud_msg.fields.clear();
+  // }
+  // //111
   map_inf_pub_.publish(cloud_msg);
 
   // ROS_INFO("pub map");

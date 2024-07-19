@@ -68,16 +68,15 @@
     <param name="fsm/waypoint4_x" value="$(arg point4_x)" type="double"/>
     <param name="fsm/waypoint4_y" value="$(arg point4_y)" type="double"/>
     <param name="fsm/waypoint4_z" value="$(arg point4_z)" type="double"/>
-    <!-- 分辨率 -->
-    <param name="grid_map/resolution"      value="0.1" /> 
+
+    <param name="grid_map/resolution"      value="0.05" /> 
     <param name="grid_map/map_size_x"   value="$(arg map_size_x_)" /> 
     <param name="grid_map/map_size_y"   value="$(arg map_size_y_)" /> 
     <param name="grid_map/map_size_z"   value="$(arg map_size_z_)" /> 
     <param name="grid_map/local_update_range_x"  value="5.5" /> 
     <param name="grid_map/local_update_range_y"  value="5.5" /> 
-    <param name="grid_map/local_update_range_z"  value="3.5" /> 
-    <!-- 膨胀率 -->
-    <param name="grid_map/obstacles_inflation"     value="0.18" /> 
+    <param name="grid_map/local_update_range_z"  value="4.5" /> 
+    <param name="grid_map/obstacles_inflation"     value="0.25" /> 
     <param name="grid_map/local_map_margin" value="30"/>
     <param name="grid_map/ground_height"        value="-0.1"/>
     <!-- camera parameter -->
@@ -102,13 +101,22 @@
     <param name="grid_map/min_ray_length" value="0.1"/>
     <param name="grid_map/max_ray_length" value="4.5"/>
 
-    <param name="grid_map/virtual_ceil_height"   value="2.5"/>
-    <!-- 能看最高 -->
-    <param name="grid_map/visualization_truncate_height"   value="4"/>
+    <param name="grid_map/virtual_ceil_height"   value="3.0"/>
+    <param name="grid_map/visualization_truncate_height"   value="4.0"/>
     <param name="grid_map/show_occ_time"  value="false"/>
     <param name="grid_map/pose_type"     value="2"/>  
     <param name="grid_map/frame_id"      value="world"/>
-
+    
+    <!-- 111 -->
+    <!--dynamic circle area -->
+    <param name="grid_map/xmax2" type="double" value="6.0"/>
+    <param name="grid_map/xmin2" type="double" value="2.5"/>
+    <param name="grid_map/ymax2" type="double" value="-9.0"/>
+    <param name="grid_map/ymin2" type="double" value="-16.0"/>
+    <param name="grid_map/zmax2" type="double" value="4.0"/>
+    <param name="grid_map/zmin2" type="double" value="1.5"/>
+    <!-- 111 -->
+    
   <!-- planner manager -->
     <param name="manager/max_vel" value="$(arg max_vel)" type="double"/>
     <param name="manager/max_acc" value="$(arg max_acc)" type="double"/>
