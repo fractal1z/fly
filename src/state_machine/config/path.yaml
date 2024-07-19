@@ -35,3 +35,5 @@ land:    [1.0, -15.0, 0.3]
 fly_static: 1   
 
 fly_dynamic: 1
+
+range_time : 0.4 #动圆距离中心触发前飞的距离

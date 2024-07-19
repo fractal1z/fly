@@ -40,7 +40,7 @@ class Algorithm:
         self.point_num = 10
 
         # 跳跃到第几个点
-        self.debug_jump_to = 12
+        self.debug_jump_to = 0
 
         # 储存的静态点
         self.point = [None] * 15  
@@ -56,7 +56,7 @@ class Algorithm:
 
         self.odom_sub = rospy.Subscriber("/mavros/local_position/odom", Odometry, self.odom_callback)
         self.mavros_state_sub = rospy.Subscriber("/mavros/state", State, self.mavros_state_callback)
-        self.image_sub = rospy.Subscriber("/iris/camera/image_raw", Image, self.image_callback)
+        self.image_sub = rospy.Subscriber("/usb_cam/image_raw", Image, self.image_callback)
         self.circle_det_sub = rospy.Subscriber("/circle", circles, self.circle_det_callback)
 
         self.arming_client = rospy.ServiceProxy("/mavros/cmd/arming", CommandBool)
@@ -170,7 +170,7 @@ class Algorithm:
         
         # Taking off
         elif self.state == 1:
-            if  self.is_close(self.odom, self.takeoff_point,0.20):
+            if  self.is_close(self.odom, self.takeoff_point,0.10):
                 time.sleep(self.stay_time)
                 self.state = 2
                 return
@@ -181,7 +181,7 @@ class Algorithm:
         
         # static point
         elif self.state == 2:
-            if self.debug_jump_to-1 > self.point_count or self.is_close(self.odom, self.point[self.point_count],0.5):
+            if self.debug_jump_to-1 > self.point_count or self.is_close(self.odom, self.point[self.point_count],0.1):
                 if self.point_count == self.point_num-1:
                     self.state = 3
                     #print(self.point_count)
@@ -199,7 +199,7 @@ class Algorithm:
         # static circle
         elif self.state == 3:
             # 调试或到达目标点附近
-            if self.debug_jump_to > 11 or self.is_close(self.odom, self.static_circle,0.25):
+            if self.debug_jump_to > 11 or self.is_close(self.odom, self.static_circle,0.20):
                 time.sleep(self.stay_time)
                 self.state = 4
                 return
@@ -224,7 +224,7 @@ class Algorithm:
                 elif self.circle_det_count == 11:
                     self.static_circle[1]/=10
                     self.static_circle[0]/=10
-                    self.static_circle[0]-=0.5
+                    self.static_circle[0]+=0.1
                     self.circle_det_count+=1
                     return
                 else:
@@ -262,9 +262,9 @@ class Algorithm:
             elif len(self.circles_msg.pos) > 0:
                 # 判断是否通过动圆
                 # 动圆移动范围（-13.8——-11.2）
-                self.left_range = -13.8+0.2        
+                self.left_range = -13.8+0.2        ###????
                 self.right_range = -11.2-0.2
-                self.center = (self.left_range+self.right_range)/2.0
+                self.center = (self.left_range+self.right_range)/2.0   ###
                 self.time = 0.40
                 # 圆环向左移动，并且圆心在中轴线右边
                 if (self.circles_msg.pos[0].y-self.odom.pose.pose.position.y > self.time and
@@ -296,7 +296,7 @@ class Algorithm:
         
         # land point
         elif self.state == 6:
-            if  self.is_close(self.odom, self.land_point,0.2):
+            if  self.is_close(self.odom, self.land_point,0.15):
                 self.state = 7
                 return
             else:
@@ -346,6 +346,7 @@ class Algorithm:
         self.land_point = rospy.get_param('~land')
         self.fly_static =rospy.get_param('~fly_static')
         self.fly_dynamic =rospy.get_param('~fly_dynamic')
+        self.range_time =rospy.get_param('~range_time')
 
 if __name__ == "__main__":
     main_algorithm = Algorithm()
