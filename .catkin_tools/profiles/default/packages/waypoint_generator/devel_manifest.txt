@@ -1,0 +1,6 @@
+ego-planner/src/uav_simulator/Utils/waypoint_generator
+/home/sly1/fly/devel/.private/waypoint_generator/cmake.lock /home/sly1/fly/devel/./cmake.lock
+/home/sly1/fly/devel/.private/waypoint_generator/share/waypoint_generator/cmake/waypoint_generatorConfig-version.cmake /home/sly1/fly/devel/share/waypoint_generator/cmake/waypoint_generatorConfig-version.cmake
+/home/sly1/fly/devel/.private/waypoint_generator/share/waypoint_generator/cmake/waypoint_generatorConfig.cmake /home/sly1/fly/devel/share/waypoint_generator/cmake/waypoint_generatorConfig.cmake
+/home/sly1/fly/devel/.private/waypoint_generator/lib/waypoint_generator/waypoint_generator /home/sly1/fly/devel/lib/waypoint_generator/waypoint_generator
+/home/sly1/fly/devel/.private/waypoint_generator/lib/pkgconfig/waypoint_generator.pc /home/sly1/fly/devel/lib/pkgconfig/waypoint_generator.pc

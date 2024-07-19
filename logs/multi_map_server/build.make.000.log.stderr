@@ -1,0 +1,7 @@
+[01m[K/home/sly1/fly/src/ego-planner/src/uav_simulator/Utils/multi_map_server/src/multi_map_visualization.cc:5:10:[m[K [01;31m[Kfatal error: [m[Kmulti_map_server/MultiOccupancyGrid.h: 没有那个文件或目录
+    5 | #include [01;31m[K<multi_map_server/MultiOccupancyGrid.h>[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+make[2]: *** [CMakeFiles/multi_map_visualization.dir/build.make:76：CMakeFiles/multi_map_visualization.dir/src/multi_map_visualization.cc.o] 错误 1
+make[1]: *** [CMakeFiles/Makefile2:2458：CMakeFiles/multi_map_visualization.dir/all] 错误 2
+make: *** [Makefile:146：all] 错误 2

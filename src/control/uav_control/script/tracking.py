@@ -226,10 +226,10 @@ def odom_cb(msg: Odometry):
         u.body_rate.x = wx
         u.body_rate.y = wy
         u.body_rate.z = wz
-        u.thrust = min(Tt/quad._a_z_max, 0.34)
+        u.thrust = min(Tt/quad._a_z_max, 0.7)
         # u.thrust = 0
     if state_machine.data < 9:
-        u.thrust = min(u.thrust, 0.34)
+        u.thrust = min(u.thrust, 0.7)
         setpoint_raw_pub.publish(u)
         print(u.thrust, u.body_rate.x, u.body_rate.y, u.body_rate.z)
 

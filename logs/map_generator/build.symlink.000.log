@@ -1,0 +1,4 @@
+Symlinking /home/sly1/fly/devel/share/map_generator/cmake/map_generatorConfig-version.cmake
+Symlinking /home/sly1/fly/devel/share/map_generator/cmake/map_generatorConfig.cmake
+Symlinking /home/sly1/fly/devel/lib/map_generator/random_forest
+Symlinking /home/sly1/fly/devel/lib/pkgconfig/map_generator.pc

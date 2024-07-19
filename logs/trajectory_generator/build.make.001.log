@@ -1,0 +1,27 @@
+[  0%] Built target std_msgs_generate_messages_py
+[  0%] Built target quadrotor_msgs_generate_messages_py
+[  0%] Built target std_msgs_generate_messages_cpp
+[  0%] Built target std_msgs_generate_messages_eus
+[  0%] Built target quadrotor_msgs_generate_messages_eus
+[  0%] Built target quadrotor_msgs_generate_messages_lisp
+[  0%] Built target std_msgs_generate_messages_nodejs
+[  0%] Built target std_msgs_generate_messages_lisp
+[  0%] Built target quadrotor_msgs_generate_messages_nodejs
+[  0%] Built target quadrotor_msgs_generate_messages_cpp
+[ 10%] [32mBuilding CXX object CMakeFiles/trajectory_generator_node.dir/src/trajectory_generator_node.cpp.o[0m
+[ 10%] Built target _trajectory_generator_generate_messages_check_deps_Trajectory
+[ 20%] [34m[1mGenerating Javascript code from trajectory_generator/Trajectory.msg[0m
+[ 30%] [34m[1mGenerating C++ code from trajectory_generator/Trajectory.msg[0m
+[ 40%] [34m[1mGenerating Python from MSG trajectory_generator/Trajectory[0m
+[ 50%] [34m[1mGenerating EusLisp code from trajectory_generator/Trajectory.msg[0m
+[ 70%] [34m[1mGenerating Lisp code from trajectory_generator/Trajectory.msg[0m
+[ 70%] [34m[1mGenerating EusLisp manifest code for trajectory_generator[0m
+[ 70%] Built target trajectory_generator_generate_messages_nodejs
+[ 70%] Built target trajectory_generator_generate_messages_lisp
+[ 70%] Built target trajectory_generator_generate_messages_cpp
+[ 80%] [34m[1mGenerating Python msg __init__.py for trajectory_generator[0m
+[ 80%] Built target trajectory_generator_generate_messages_py
+[ 80%] Built target trajectory_generator_generate_messages_eus
+[ 80%] Built target trajectory_generator_generate_messages
+[ 90%] [32m[1mLinking CXX executable /home/sly1/fly/devel/.private/trajectory_generator/lib/trajectory_generator/trajectory_generator_node[0m
+[100%] Built target trajectory_generator_node

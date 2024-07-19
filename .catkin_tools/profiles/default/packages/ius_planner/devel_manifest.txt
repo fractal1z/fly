@@ -1,0 +1,6 @@
+control/ius_planner
+/home/sly1/fly/devel/.private/ius_planner/cmake.lock /home/sly1/fly/devel/./cmake.lock
+/home/sly1/fly/devel/.private/ius_planner/share/ius_planner/cmake/ius_plannerConfig-version.cmake /home/sly1/fly/devel/share/ius_planner/cmake/ius_plannerConfig-version.cmake
+/home/sly1/fly/devel/.private/ius_planner/share/ius_planner/cmake/ius_plannerConfig.cmake /home/sly1/fly/devel/share/ius_planner/cmake/ius_plannerConfig.cmake
+/home/sly1/fly/devel/.private/ius_planner/lib/ius_planner/ius_planner_exp_node /home/sly1/fly/devel/lib/ius_planner/ius_planner_exp_node
+/home/sly1/fly/devel/.private/ius_planner/lib/pkgconfig/ius_planner.pc /home/sly1/fly/devel/lib/pkgconfig/ius_planner.pc

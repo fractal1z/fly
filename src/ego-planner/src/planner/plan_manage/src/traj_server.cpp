@@ -53,7 +53,7 @@ void bsplineCallback(ego_planner::BsplineConstPtr msg)
   traj_msg_.header.frame_id = "world";
   for (size_t i = 0; i< msg->pos_pts.size(); ++i) {
     traj_msg_.pos.push_back(msg->pos_pts[i]);
-    traj_msg_.yaw.push_back(0.0);
+    traj_msg_.yaw.push_back(0);
     traj_msg_.time.push_back(msg->knots[i]);
   }
 

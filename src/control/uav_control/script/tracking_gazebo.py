@@ -126,7 +126,7 @@ rospy.init_node("tracking")
 
 auto_offboard = rospy.get_param('~auto_offboard', True)
 auto_offboard = True
-setpoint_raw_pub = rospy.Publisher("/iris_0/mavros/setpoint_raw/attitude", AttitudeTarget, queue_size=1, tcp_nodelay=True)
+setpoint_raw_pub = rospy.Publisher("/mavros/setpoint_raw/attitude", AttitudeTarget, queue_size=1, tcp_nodelay=True)
 
 mavros_state = None
 def mavros_state_cb(msg: State):

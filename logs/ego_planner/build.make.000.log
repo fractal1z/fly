@@ -1,0 +1,38 @@
+[  0%] Built target geometry_msgs_generate_messages_py
+[  0%] Built target std_msgs_generate_messages_py
+[  0%] Built target std_msgs_generate_messages_eus
+[  0%] Built target geometry_msgs_generate_messages_cpp
+[  0%] Built target std_msgs_generate_messages_cpp
+[  0%] Built target geometry_msgs_generate_messages_eus
+[  0%] Built target std_msgs_generate_messages_nodejs
+[  0%] Built target std_msgs_generate_messages_lisp
+[  0%] Built target geometry_msgs_generate_messages_nodejs
+[  0%] Built target geometry_msgs_generate_messages_lisp
+[  0%] Built target _ego_planner_generate_messages_check_deps_DataDisp
+[  0%] Built target _ego_planner_generate_messages_check_deps_Bspline
+[  5%] [34m[1mGenerating C++ code from ego_planner/Bspline.msg[0m
+[ 22%] [34m[1mGenerating EusLisp code from ego_planner/Bspline.msg[0m
+[ 22%] [34m[1mGenerating Lisp code from ego_planner/Bspline.msg[0m
+[ 22%] [34m[1mGenerating C++ code from ego_planner/DataDisp.msg[0m
+[ 38%] [34m[1mGenerating Lisp code from ego_planner/DataDisp.msg[0m
+[ 38%] [34m[1mGenerating EusLisp code from ego_planner/DataDisp.msg[0m
+[ 38%] [34m[1mGenerating EusLisp manifest code for ego_planner[0m
+[ 50%] [34m[1mGenerating Javascript code from ego_planner/DataDisp.msg[0m
+[ 50%] [34m[1mGenerating Javascript code from ego_planner/Bspline.msg[0m
+[ 61%] [34m[1mGenerating Python from MSG ego_planner/Bspline[0m
+[ 61%] [34m[1mGenerating Python from MSG ego_planner/DataDisp[0m
+[ 61%] Built target ego_planner_generate_messages_lisp
+[ 61%] Built target ego_planner_generate_messages_nodejs
+[ 61%] Built target ego_planner_generate_messages_cpp
+[ 66%] [34m[1mGenerating Python msg __init__.py for ego_planner[0m
+[ 66%] Built target ego_planner_generate_messages_py
+[ 66%] Built target ego_planner_generate_messages_eus
+[ 66%] Built target ego_planner_generate_messages
+[ 72%] [32mBuilding CXX object CMakeFiles/traj_server.dir/src/traj_server.cpp.o[0m
+[ 77%] [32mBuilding CXX object CMakeFiles/ego_planner_node.dir/src/ego_planner_node.cpp.o[0m
+[ 83%] [32mBuilding CXX object CMakeFiles/ego_planner_node.dir/src/ego_replan_fsm.cpp.o[0m
+[ 88%] [32mBuilding CXX object CMakeFiles/ego_planner_node.dir/src/planner_manager.cpp.o[0m
+[ 94%] [32m[1mLinking CXX executable /home/sly1/fly/devel/.private/ego_planner/lib/ego_planner/traj_server[0m
+[ 94%] Built target traj_server
+[100%] [32m[1mLinking CXX executable /home/sly1/fly/devel/.private/ego_planner/lib/ego_planner/ego_planner_node[0m
+[100%] Built target ego_planner_node

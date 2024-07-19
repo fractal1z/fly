@@ -1,0 +1,6 @@
+ego-planner/src/uav_simulator/Utils/rviz_plugins
+/home/sly1/fly/devel/.private/rviz_plugins/cmake.lock /home/sly1/fly/devel/./cmake.lock
+/home/sly1/fly/devel/.private/rviz_plugins/share/rviz_plugins/cmake/rviz_pluginsConfig-version.cmake /home/sly1/fly/devel/share/rviz_plugins/cmake/rviz_pluginsConfig-version.cmake
+/home/sly1/fly/devel/.private/rviz_plugins/share/rviz_plugins/cmake/rviz_pluginsConfig.cmake /home/sly1/fly/devel/share/rviz_plugins/cmake/rviz_pluginsConfig.cmake
+/home/sly1/fly/devel/.private/rviz_plugins/lib/librviz_plugins.so /home/sly1/fly/devel/lib/librviz_plugins.so
+/home/sly1/fly/devel/.private/rviz_plugins/lib/pkgconfig/rviz_plugins.pc /home/sly1/fly/devel/lib/pkgconfig/rviz_plugins.pc
