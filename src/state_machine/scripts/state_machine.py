@@ -224,7 +224,7 @@ class Algorithm:
                 elif self.circle_det_count == 11:
                     self.static_circle[1]/=10
                     self.static_circle[0]/=10
-                    self.static_circle[0]+=0.1
+                    self.static_circle[0]+=0.1## 正穿越+
                     self.circle_det_count+=1
                     return
                 else:
@@ -265,19 +265,19 @@ class Algorithm:
                 self.left_range = -13.8+0.2        ###????
                 self.right_range = -11.2-0.2
                 self.center = (self.left_range+self.right_range)/2.0   ###
-                self.time = 0.40
+                # self.range_time = 0.40
                 # 圆环向左移动，并且圆心在中轴线右边
-                if (self.circles_msg.pos[0].y-self.odom.pose.pose.position.y > self.time and
-                    self.circles_msg.pos[0].y-self.odom.pose.pose.position.y < self.time + 0.05
+                if (self.circles_msg.pos[0].y-self.odom.pose.pose.position.y > self.range_time and
+                    self.circles_msg.pos[0].y-self.odom.pose.pose.position.y < self.range_time + 0.05
                     and self.wait_dymatic):
-                    if (self.msg_1s_ago.pos[0].y-self.odom.pose.pose.position.y > self.time+ 0.05):
+                    if (self.msg_1s_ago.pos[0].y-self.odom.pose.pose.position.y > self.range_time+ 0.05):
                         self.go = True
                         print("圆环向左移动且可通过")
                 # 圆环向右移动，并且圆心在中轴线左边
-                elif (self.odom.pose.pose.position.y-self.circles_msg.pos[0].y > self.time and
-                      self.odom.pose.pose.position.y-self.circles_msg.pos[0].y < self.time + 0.05
+                elif (self.odom.pose.pose.position.y-self.circles_msg.pos[0].y > self.range_time and
+                      self.odom.pose.pose.position.y-self.circles_msg.pos[0].y < self.range_time + 0.05
                     and self.wait_dymatic):
-                    if (self.odom.pose.pose.position.y-self.msg_1s_ago.pos[0].y > self.time+ 0.05):
+                    if (self.odom.pose.pose.position.y-self.msg_1s_ago.pos[0].y > self.range_time+ 0.05):
                         self.go = True
                         print("圆环向右移动且可通过")
 

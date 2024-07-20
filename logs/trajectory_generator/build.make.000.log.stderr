@@ -1,8 +1,0 @@
-[01m[K/home/sly1/fly/src/PathPlanning/trajectory_generator/src/trajectory_generator_node.cpp:18:10:[m[K [01;31m[Kfatal error: [m[Ktrajectory_generator/Trajectory.h: 没有那个文件或目录
-   18 | #include [01;31m[K"trajectory_generator/Trajectory.h"[m[K
-      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
-compilation terminated.
-make[2]: *** [CMakeFiles/trajectory_generator_node.dir/build.make:76：CMakeFiles/trajectory_generator_node.dir/src/trajectory_generator_node.cpp.o] 错误 1
-make[2]: *** 正在等待未完成的任务....
-make[1]: *** [CMakeFiles/Makefile2:1552：CMakeFiles/trajectory_generator_node.dir/all] 错误 2
-make: *** [Makefile:146：all] 错误 2

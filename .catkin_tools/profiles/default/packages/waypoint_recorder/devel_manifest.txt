@@ -1,0 +1,5 @@
+waypoint_recorder
+/home/fractal/fly/devel/.private/waypoint_recorder/cmake.lock /home/fractal/fly/devel/./cmake.lock
+/home/fractal/fly/devel/.private/waypoint_recorder/share/waypoint_recorder/cmake/waypoint_recorderConfig.cmake /home/fractal/fly/devel/share/waypoint_recorder/cmake/waypoint_recorderConfig.cmake
+/home/fractal/fly/devel/.private/waypoint_recorder/share/waypoint_recorder/cmake/waypoint_recorderConfig-version.cmake /home/fractal/fly/devel/share/waypoint_recorder/cmake/waypoint_recorderConfig-version.cmake
+/home/fractal/fly/devel/.private/waypoint_recorder/lib/pkgconfig/waypoint_recorder.pc /home/fractal/fly/devel/lib/pkgconfig/waypoint_recorder.pc

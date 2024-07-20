@@ -1,21 +1,45 @@
 [  0%] Built target geometry_msgs_generate_messages_py
 [  0%] Built target nav_msgs_generate_messages_py
-[  0%] Built target geometry_msgs_generate_messages_eus
 [  0%] Built target geometry_msgs_generate_messages_cpp
-[  0%] Built target nav_msgs_generate_messages_eus
-[  0%] Built target nav_msgs_generate_messages_lisp
 [  0%] Built target nav_msgs_generate_messages_cpp
+[  0%] Built target geometry_msgs_generate_messages_eus
 [  0%] Built target geometry_msgs_generate_messages_lisp
 [  0%] Built target geometry_msgs_generate_messages_nodejs
 [  0%] Built target nav_msgs_generate_messages_nodejs
-[  8%] Built target multi_map_visualization
-[  8%] Built target _multi_map_server_generate_messages_check_deps_SparseMap3D
-[  8%] Built target _multi_map_server_generate_messages_check_deps_MultiSparseMap3D
-[  8%] Built target _multi_map_server_generate_messages_check_deps_VerticalOccupancyGridList
-[  8%] Built target _multi_map_server_generate_messages_check_deps_MultiOccupancyGrid
-[ 45%] Built target multi_map_server_generate_messages_py
-[ 45%] Built target multi_map_server_generate_messages_cpp
-[ 66%] Built target multi_map_server_generate_messages_eus
-[ 83%] Built target multi_map_server_generate_messages_nodejs
-[100%] Built target multi_map_server_generate_messages_lisp
-[100%] Built target multi_map_server_generate_messages
+[  0%] Built target nav_msgs_generate_messages_eus
+[  0%] Built target nav_msgs_generate_messages_lisp
+[  4%] [32mBuilding CXX object CMakeFiles/multi_map_visualization.dir/src/multi_map_visualization.cc.o[0m
+[  4%] Built target _multi_map_server_generate_messages_check_deps_MultiOccupancyGrid
+[  4%] Built target _multi_map_server_generate_messages_check_deps_SparseMap3D
+[  4%] Built target _multi_map_server_generate_messages_check_deps_MultiSparseMap3D
+[  4%] Built target _multi_map_server_generate_messages_check_deps_VerticalOccupancyGridList
+[ 12%] [34m[1mGenerating Python from MSG multi_map_server/MultiOccupancyGrid[0m
+[ 12%] [34m[1mGenerating C++ code from multi_map_server/MultiOccupancyGrid.msg[0m
+[ 16%] [34m[1mGenerating EusLisp code from multi_map_server/MultiOccupancyGrid.msg[0m
+[ 50%] [34m[1mGenerating Lisp code from multi_map_server/MultiSparseMap3D.msg[0m
+[ 50%] [34m[1mGenerating Python from MSG multi_map_server/MultiSparseMap3D[0m
+[ 50%] [34m[1mGenerating C++ code from multi_map_server/MultiSparseMap3D.msg[0m
+[ 50%] [34m[1mGenerating EusLisp code from multi_map_server/MultiSparseMap3D.msg[0m
+[ 50%] [34m[1mGenerating Javascript code from multi_map_server/MultiSparseMap3D.msg[0m
+[ 50%] [34m[1mGenerating Python from MSG multi_map_server/SparseMap3D[0m
+[ 50%] [34m[1mGenerating Lisp code from multi_map_server/MultiOccupancyGrid.msg[0m
+[ 54%] [34m[1mGenerating Lisp code from multi_map_server/SparseMap3D.msg[0m
+[ 50%] [34m[1mGenerating Javascript code from multi_map_server/MultiOccupancyGrid.msg[0m
+[ 58%] [34m[1mGenerating Python from MSG multi_map_server/VerticalOccupancyGridList[0m
+[ 66%] [34m[1mGenerating EusLisp code from multi_map_server/SparseMap3D.msg[0m
+[ 66%] [34m[1mGenerating C++ code from multi_map_server/SparseMap3D.msg[0m
+[ 70%] [34m[1mGenerating EusLisp code from multi_map_server/VerticalOccupancyGridList.msg[0m
+[ 75%] [34m[1mGenerating Javascript code from multi_map_server/SparseMap3D.msg[0m
+[ 79%] [34m[1mGenerating EusLisp manifest code for multi_map_server[0m
+[ 83%] [34m[1mGenerating C++ code from multi_map_server/VerticalOccupancyGridList.msg[0m
+[ 87%] [34m[1mGenerating Lisp code from multi_map_server/VerticalOccupancyGridList.msg[0m
+[ 91%] [34m[1mGenerating Javascript code from multi_map_server/VerticalOccupancyGridList.msg[0m
+[ 91%] Built target multi_map_server_generate_messages_lisp
+[ 91%] Built target multi_map_server_generate_messages_nodejs
+[ 91%] Built target multi_map_server_generate_messages_cpp
+[ 95%] [34m[1mGenerating Python msg __init__.py for multi_map_server[0m
+[ 95%] Built target multi_map_server_generate_messages_py
+[ 95%] Built target multi_map_server_generate_messages_eus
+[ 95%] Built target multi_map_server_generate_messages
+[100%] [32m[1mLinking CXX executable /home/fractal/fly/devel/.private/multi_map_server/lib/multi_map_server/multi_map_visualization[0m
+[100%] Built target multi_map_visualization

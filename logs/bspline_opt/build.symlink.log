@@ -1,4 +1,4 @@
-Linked: (/home/sly1/fly/devel/.private/bspline_opt/share/bspline_opt/cmake/bspline_optConfig-version.cmake, /home/sly1/fly/devel/share/bspline_opt/cmake/bspline_optConfig-version.cmake)
-Linked: (/home/sly1/fly/devel/.private/bspline_opt/share/bspline_opt/cmake/bspline_optConfig.cmake, /home/sly1/fly/devel/share/bspline_opt/cmake/bspline_optConfig.cmake)
-Linked: (/home/sly1/fly/devel/.private/bspline_opt/lib/libbspline_opt.so, /home/sly1/fly/devel/lib/libbspline_opt.so)
-Linked: (/home/sly1/fly/devel/.private/bspline_opt/lib/pkgconfig/bspline_opt.pc, /home/sly1/fly/devel/lib/pkgconfig/bspline_opt.pc)
+Symlinking /home/fractal/fly/devel/share/bspline_opt/cmake/bspline_optConfig-version.cmake
+Symlinking /home/fractal/fly/devel/share/bspline_opt/cmake/bspline_optConfig.cmake
+Symlinking /home/fractal/fly/devel/lib/libbspline_opt.so
+Symlinking /home/fractal/fly/devel/lib/pkgconfig/bspline_opt.pc

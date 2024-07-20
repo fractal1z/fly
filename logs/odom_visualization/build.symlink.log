@@ -1,4 +1,4 @@
-Linked: (/home/sly1/fly/devel/.private/odom_visualization/share/odom_visualization/cmake/odom_visualizationConfig-version.cmake, /home/sly1/fly/devel/share/odom_visualization/cmake/odom_visualizationConfig-version.cmake)
-Linked: (/home/sly1/fly/devel/.private/odom_visualization/share/odom_visualization/cmake/odom_visualizationConfig.cmake, /home/sly1/fly/devel/share/odom_visualization/cmake/odom_visualizationConfig.cmake)
-Linked: (/home/sly1/fly/devel/.private/odom_visualization/lib/odom_visualization/odom_visualization, /home/sly1/fly/devel/lib/odom_visualization/odom_visualization)
-Linked: (/home/sly1/fly/devel/.private/odom_visualization/lib/pkgconfig/odom_visualization.pc, /home/sly1/fly/devel/lib/pkgconfig/odom_visualization.pc)
+Symlinking /home/fractal/fly/devel/share/odom_visualization/cmake/odom_visualizationConfig-version.cmake
+Symlinking /home/fractal/fly/devel/share/odom_visualization/cmake/odom_visualizationConfig.cmake
+Symlinking /home/fractal/fly/devel/lib/odom_visualization/odom_visualization
+Symlinking /home/fractal/fly/devel/lib/pkgconfig/odom_visualization.pc

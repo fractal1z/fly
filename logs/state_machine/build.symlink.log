@@ -1,3 +1,3 @@
-Linked: (/home/sly1/fly/devel/.private/state_machine/share/state_machine/cmake/state_machineConfig.cmake, /home/sly1/fly/devel/share/state_machine/cmake/state_machineConfig.cmake)
-Linked: (/home/sly1/fly/devel/.private/state_machine/share/state_machine/cmake/state_machineConfig-version.cmake, /home/sly1/fly/devel/share/state_machine/cmake/state_machineConfig-version.cmake)
-Linked: (/home/sly1/fly/devel/.private/state_machine/lib/pkgconfig/state_machine.pc, /home/sly1/fly/devel/lib/pkgconfig/state_machine.pc)
+Symlinking /home/fractal/fly/devel/share/state_machine/cmake/state_machineConfig-version.cmake
+Symlinking /home/fractal/fly/devel/share/state_machine/cmake/state_machineConfig.cmake
+Symlinking /home/fractal/fly/devel/lib/pkgconfig/state_machine.pc
