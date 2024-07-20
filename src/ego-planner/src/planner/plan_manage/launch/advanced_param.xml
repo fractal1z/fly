@@ -110,12 +110,12 @@
     
     <!-- 111 -->
     <!--dynamic circle area -->
-    <param name="grid_map/xmax2" type="double" value="6.0"/>
-    <param name="grid_map/xmin2" type="double" value="2.5"/>
-    <param name="grid_map/ymax2" type="double" value="-9.0"/>
-    <param name="grid_map/ymin2" type="double" value="-16.0"/>
-    <param name="grid_map/zmax2" type="double" value="4.0"/>
-    <param name="grid_map/zmin2" type="double" value="1.5"/>
+    <param name="grid_map/xmax2" type="double" value="18.37"/>
+    <param name="grid_map/xmin2" type="double" value="16.72"/>
+    <param name="grid_map/ymax2" type="double" value="2.37"/>
+    <param name="grid_map/ymin2" type="double" value="-0.95"/>
+    <param name="grid_map/zmax2" type="double" value="3.0"/>
+    <param name="grid_map/zmin2" type="double" value="0.2"/>
     <!-- 111 -->
     
   <!-- planner manager -->

@@ -1,6 +1,6 @@
-Symlinking /home/fractal/fly/devel/share/so3_control/cmake/so3_controlConfig-version.cmake
-Symlinking /home/fractal/fly/devel/share/so3_control/cmake/so3_controlConfig.cmake
-Symlinking /home/fractal/fly/devel/lib/libso3_control_nodelet.so
-Symlinking /home/fractal/fly/devel/lib/libSO3Control.so
-Symlinking /home/fractal/fly/devel/lib/so3_control/control_example
-Symlinking /home/fractal/fly/devel/lib/pkgconfig/so3_control.pc
+Symlinking /home/sly1/fly/devel/share/so3_control/cmake/so3_controlConfig-version.cmake
+Symlinking /home/sly1/fly/devel/share/so3_control/cmake/so3_controlConfig.cmake
+Symlinking /home/sly1/fly/devel/lib/libSO3Control.so
+Symlinking /home/sly1/fly/devel/lib/libso3_control_nodelet.so
+Symlinking /home/sly1/fly/devel/lib/so3_control/control_example
+Symlinking /home/sly1/fly/devel/lib/pkgconfig/so3_control.pc

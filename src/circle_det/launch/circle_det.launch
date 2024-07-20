@@ -3,18 +3,18 @@
         <param name="image_topic" type="string" value="/camera/image_raw"/>
         <param name="circle_topic" type="string" value="/circle"/>
         
-        <param name="xmax1" type="double" value="12.0"/>
-        <param name="xmin1" type="double" value="6.0"/>
-        <param name="ymax1" type="double" value="-15.0"/>
-        <param name="ymin1" type="double" value="-22.0"/>
-        <param name="zmax1" type="double" value="4.0"/>
-        <param name="zmin1" type="double" value="1.5"/>
+        <param name="xmax1" type="double" value="18.37"/>
+        <param name="xmin1" type="double" value="16.72"/>
+        <param name="ymax1" type="double" value="2.37"/>
+        <param name="ymin1" type="double" value="-0.95"/>
+        <param name="zmax1" type="double" value="3.0"/>
+        <param name="zmin1" type="double" value="0.5"/>
         
-        <param name="xmax2" type="double" value="6.0"/>
-        <param name="xmin2" type="double" value="2.5"/>
-        <param name="ymax2" type="double" value="-9.0"/>
-        <param name="ymin2" type="double" value="-16.0"/>
-        <param name="zmax2" type="double" value="4.0"/>
-        <param name="zmin2" type="double" value="1.5"/>
+        <param name="xmax2" type="double" value="18.37"/>
+        <param name="xmin2" type="double" value="16.72"/>
+        <param name="ymax2" type="double" value="2.37"/>
+        <param name="ymin2" type="double" value="-0.95"/>
+        <param name="zmax2" type="double" value="3.0"/>
+        <param name="zmin2" type="double" value="0.5"/>
     </node>
 </launch>

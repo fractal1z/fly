@@ -30,7 +30,7 @@ class WaypointMem:
 
     def record_point(self, name):
         position = self.odom.pose.pose.position
-        point = [[position.x, position.y, position.z]]
+        point = [round(position.x, 2), round(position.y, 2), 0]#z自己定义
         self.points[name] = point
         rospy.loginfo(f"Recorded point {name}: {point}")
         self.save_to_yaml(name, point)

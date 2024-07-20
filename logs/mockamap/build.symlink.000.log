@@ -1,4 +1,4 @@
-Symlinking /home/fractal/fly/devel/share/mockamap/cmake/mockamapConfig.cmake
-Symlinking /home/fractal/fly/devel/share/mockamap/cmake/mockamapConfig-version.cmake
-Symlinking /home/fractal/fly/devel/lib/mockamap/mockamap_node
-Symlinking /home/fractal/fly/devel/lib/pkgconfig/mockamap.pc
+Symlinking /home/sly1/fly/devel/share/mockamap/cmake/mockamapConfig.cmake
+Symlinking /home/sly1/fly/devel/share/mockamap/cmake/mockamapConfig-version.cmake
+Symlinking /home/sly1/fly/devel/lib/pkgconfig/mockamap.pc
+Symlinking /home/sly1/fly/devel/lib/mockamap/mockamap_node

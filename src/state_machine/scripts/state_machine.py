@@ -37,7 +37,7 @@ class Algorithm:
         self.msg_queue = deque()  # 队列用于保存消息和时间戳
 
         # 静态点数量
-        self.point_num = 10
+        self.point_num = 8
 
         # 跳跃到第几个点
         self.debug_jump_to = 0
@@ -52,7 +52,7 @@ class Algorithm:
         self.land_flag = 0
 
         # 穿越动环指令
-        self.go = False
+        self.go =  True###
 
         self.odom_sub = rospy.Subscriber("/mavros/local_position/odom", Odometry, self.odom_callback)
         self.mavros_state_sub = rospy.Subscriber("/mavros/state", State, self.mavros_state_callback)
@@ -93,7 +93,7 @@ class Algorithm:
                 self.land_flag = 1
             else:
                 print("AprilTag undetected!")
-                self.land_flag = 0
+                # self.land_flag = 0
 
     def circle_det_callback(self, msg):
         current_time = datetime.now()
@@ -171,8 +171,8 @@ class Algorithm:
         # Taking off
         elif self.state == 1:
             if  self.is_close(self.odom, self.takeoff_point,0.10):
-                time.sleep(self.stay_time)
-                self.state = 2
+                time.sleep(self.stay_time*5)
+                self.state = 2 
                 return
             else:
                 self.go_to(self.takeoff_point)
@@ -183,11 +183,11 @@ class Algorithm:
         elif self.state == 2:
             if self.debug_jump_to-1 > self.point_count or self.is_close(self.odom, self.point[self.point_count],0.1):
                 if self.point_count == self.point_num-1:
-                    self.state = 3
+                    self.state = 3 #####
                     #print(self.point_count)
                     return
                 time.sleep(self.stay_time)
-                self.state = 2
+                self.state = 2 
                 self.point_count+=1
                 return
             else:
@@ -201,7 +201,7 @@ class Algorithm:
             # 调试或到达目标点附近
             if self.debug_jump_to > 11 or self.is_close(self.odom, self.static_circle,0.20):
                 time.sleep(self.stay_time)
-                self.state = 4
+                self.state = 6######
                 return
             
             # 标点通过静态圆环
@@ -224,7 +224,7 @@ class Algorithm:
                 elif self.circle_det_count == 11:
                     self.static_circle[1]/=10
                     self.static_circle[0]/=10
-                    self.static_circle[0]+=0.1## 正穿越+
+                    self.static_circle[0]+=1.0## 正穿越+
                     self.circle_det_count+=1
                     return
                 else:
@@ -240,6 +240,7 @@ class Algorithm:
                 time.sleep(self.stay_time)
                 self.state = 5
                 time.sleep(self.stay_time*6) #必要
+                
                 return
             else:
                 self.go_to(self.led_point)
@@ -249,8 +250,11 @@ class Algorithm:
         elif self.state == 5:
             # 调试或到达目标点附近
             if self.debug_jump_to > 13 or self.is_close(self.odom, self.dymatic_circle,0.15):
+                self.circle_end=time.clock_gettime() ##y
+                print(f'动圆飞行--结束:{self.circle_end}')
+                print(f'+++++动圆飞行--用时:{self.circle_end-self.circle_start}+++++')
                 time.sleep(self.stay_time)
-                self.state = 6
+                self.state = 5 #####
                 return
             
             # 不通过动圆
@@ -283,6 +287,8 @@ class Algorithm:
 
                 if  (self.go): 
                     self.go_to(self.dymatic_circle)
+                    self.circle_start=time.clock_gettime() ##y
+                    print(f'动圆飞行--开始:{self.circle_start}')
                     print(f'识别通过动圆:{self.dymatic_circle}')
                     self.wait_dymatic = False
                 elif self.wait_dymatic:
@@ -308,7 +314,6 @@ class Algorithm:
             if  self.land_flag == 1:
                 #self.set_mode_client(0,'Failsafe')
                 self.set_mode_client(0,'AUTO.LAND')
-                self.arming_client(False)
                 self.state = 8
                 self.land_flag = 0
                 return
@@ -324,6 +329,7 @@ class Algorithm:
             u.body_rate.y = 0
             u.body_rate.z = 0
             u.thrust = 0
+            self.arming_client(False)
             self.setpoint_raw_pub.publish(u)
             return
         
