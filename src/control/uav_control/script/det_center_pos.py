@@ -51,7 +51,7 @@ class DroneNavigator:
 
             # 获取x方向上的坐标范围
             x_min = position.x + 0.2  # 无人机前方0.2m的最小x值
-            x_max = position.x + 1.0  # 无人机前方1m的最大x值
+            x_max = position.x + 1.5  # 无人机前方1m的最大x值
 
             # 获取y和z方向上的坐标范围
             y_min, y_max = -1.5, 1.5  # 世界坐标系下y轴的范围
@@ -112,23 +112,23 @@ class DroneNavigator:
 
     def run(self):
         rate = rospy.Rate(10)
-        
+
         while not rospy.is_shutdown():
             # 计算目标位置和过滤后的点云
             target_position, filtered_points = self.navigate_drone_to_box()
-            
+
             if target_position is not None:
                 try:
                     # 发布目标位置
                     target_pose = PoseStamped()
                     target_pose.header.stamp = rospy.Time.now()
                     target_pose.header.frame_id = "world"  # 发布到世界坐标系中
-                    
+
                     target_pose.pose.position.x = target_position[0]
                     target_pose.pose.position.y = target_position[1]
                     target_pose.pose.position.z = target_position[2]
                     target_pose.pose.orientation.w = 1.0
-                    
+
                     self.target_pub.publish(target_pose)
                     rospy.loginfo("Published target position")
                 except Exception as e:
