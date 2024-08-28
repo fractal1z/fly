@@ -15,7 +15,7 @@ sudo make install
 用于雷达定位，对源码进行了修改，在`/Odometry`话题中可以输出三轴速度信息，来源于IMU的EKF积分
 
 ## ego planner规划
-Waiting...
+对ego planner源码进行了修改，主要适配MPC控制接口，需要持续发送路径信息
 
 ## MPC控制
-Waiting...
+修改于 https://github.com/ZhouZiyuBIT/Fast-fly 时间自适应MPC
