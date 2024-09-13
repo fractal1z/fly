@@ -1,4 +1,4 @@
-Symlinking /home/sly1/fly/devel/share/waypoint_generator/cmake/waypoint_generatorConfig-version.cmake
-Symlinking /home/sly1/fly/devel/share/waypoint_generator/cmake/waypoint_generatorConfig.cmake
-Symlinking /home/sly1/fly/devel/lib/waypoint_generator/waypoint_generator
-Symlinking /home/sly1/fly/devel/lib/pkgconfig/waypoint_generator.pc
+Symlinking /home/fractal-wsl/fly/devel/share/waypoint_generator/cmake/waypoint_generatorConfig-version.cmake
+Symlinking /home/fractal-wsl/fly/devel/share/waypoint_generator/cmake/waypoint_generatorConfig.cmake
+Symlinking /home/fractal-wsl/fly/devel/lib/pkgconfig/waypoint_generator.pc
+Symlinking /home/fractal-wsl/fly/devel/lib/waypoint_generator/waypoint_generator

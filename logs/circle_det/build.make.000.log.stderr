@@ -1,7 +1,7 @@
-[01m[K/home/sly1/fly/src/circle_det/src/main.cpp:12:10:[m[K [01;31m[Kfatal error: [m[Kcircle_det/circles.h: 没有那个文件或目录
-   12 | #include [01;31m[K"circle_det/circles.h"[m[K
-      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
-compilation terminated.
+[01m[K/home/fractal-wsl/fly/src/circle_det/src/main.cpp:[m[K In function ‘[01m[Kvoid cloud_cb(const PointCloud2ConstPtr&)[m[K’:
+[01m[K/home/fractal-wsl/fly/src/circle_det/src/main.cpp:28:50:[m[K [01;31m[Kerror: [m[Klvalue required as left operand of assignment
+   28 |     if (state.data==3||state.data=4||state.data==[01;31m[K5[m[K)
+      |                                                  [01;31m[K^[m[K
 make[2]: *** [CMakeFiles/circle_det_node.dir/build.make:76：CMakeFiles/circle_det_node.dir/src/main.cpp.o] 错误 1
 make[1]: *** [CMakeFiles/Makefile2:2713：CMakeFiles/circle_det_node.dir/all] 错误 2
 make: *** [Makefile:146：all] 错误 2

@@ -35,9 +35,10 @@ class Algorithm:
         self.circles_msg = circles()
         self.wait_dymatic = True
         self.msg_queue = deque()  # 队列用于保存消息和时间戳
-
+        self.preland_count = 0
+        self.dynamic_y = 0
         # 静态点数量
-        self.point_num = 8
+        self.point_num = 12####
 
         # 跳跃到第几个点
         self.debug_jump_to = 0
@@ -52,7 +53,7 @@ class Algorithm:
         self.land_flag = 0
 
         # 穿越动环指令
-        self.go =  True###
+        self.go = False###
 
         self.odom_sub = rospy.Subscriber("/mavros/local_position/odom", Odometry, self.odom_callback)
         self.mavros_state_sub = rospy.Subscriber("/mavros/state", State, self.mavros_state_callback)
@@ -89,16 +90,17 @@ class Algorithm:
             detections = self.detector.detect(gray_image)
             
             if detections:
-                print("AprilTag detected!")
+                print(f"AprilTag detected {self.preland_count} time!")
                 self.land_flag = 1
             else:
-                print("AprilTag undetected!")
+                # print("AprilTag undetected!")
+                return
                 # self.land_flag = 0
 
     def circle_det_callback(self, msg):
         current_time = datetime.now()
 
-        # 清理超过1.0秒的旧消息
+        # 清理超过1.5秒的旧消息
         while self.msg_queue and (current_time - self.msg_queue[0][0]) > timedelta(seconds=1.0):
             self.msg_queue.popleft()
 
@@ -181,7 +183,7 @@ class Algorithm:
         
         # static point
         elif self.state == 2:
-            if self.debug_jump_to-1 > self.point_count or self.is_close(self.odom, self.point[self.point_count],0.1):
+            if self.debug_jump_to-1 > self.point_count or self.is_close(self.odom, self.point[self.point_count],0.15):
                 if self.point_count == self.point_num-1:
                     self.state = 3 #####
                     #print(self.point_count)
@@ -199,9 +201,9 @@ class Algorithm:
         # static circle
         elif self.state == 3:
             # 调试或到达目标点附近
-            if self.debug_jump_to > 11 or self.is_close(self.odom, self.static_circle,0.20):
+            if self.debug_jump_to > 14 or self.is_close(self.odom, self.static_circle,0.20):
                 time.sleep(self.stay_time)
-                self.state = 6######
+                self.state = 4######
                 return
             
             # 标点通过静态圆环
@@ -224,7 +226,7 @@ class Algorithm:
                 elif self.circle_det_count == 11:
                     self.static_circle[1]/=10
                     self.static_circle[0]/=10
-                    self.static_circle[0]+=1.0## 正穿越+
+                    self.static_circle[0]-=1.0## 反穿越+
                     self.circle_det_count+=1
                     return
                 else:
@@ -236,11 +238,11 @@ class Algorithm:
         
         # led to next circle
         elif self.state == 4:
-            if  self.debug_jump_to > 12 or self.is_close(self.odom, self.led_point,0.20):
+            if  self.debug_jump_to > 15 or self.is_close(self.odom, self.led_point,0.20):
                 time.sleep(self.stay_time)
                 self.state = 5
-                time.sleep(self.stay_time*6) #必要
-                
+                time.sleep(self.stay_time*10) #必要
+                #self.dynamic_y = self.odom.pose.pose.position.y
                 return
             else:
                 self.go_to(self.led_point)
@@ -249,12 +251,13 @@ class Algorithm:
         # dymatic circle
         elif self.state == 5:
             # 调试或到达目标点附近
-            if self.debug_jump_to > 13 or self.is_close(self.odom, self.dymatic_circle,0.15):
-                self.circle_end=time.clock_gettime() ##y
-                print(f'动圆飞行--结束:{self.circle_end}')
-                print(f'+++++动圆飞行--用时:{self.circle_end-self.circle_start}+++++')
+            if self.debug_jump_to > 16 or self.is_close(self.odom, self.dymatic_circle,0.15):
+                if self.fly_dynamic == True:
+                    self.circle_end=time.time() ##y
+                    print(f'动圆飞行--结束:{self.circle_end}')
+                    print(f'+++++动圆飞行--用时:{self.circle_end-self.circle_start}+++++')
                 time.sleep(self.stay_time)
-                self.state = 5 #####
+                self.state = 6 #####
                 return
             
             # 不通过动圆
@@ -270,26 +273,28 @@ class Algorithm:
                 self.right_range = -11.2-0.2
                 self.center = (self.left_range+self.right_range)/2.0   ###
                 # self.range_time = 0.40
+                self.dynamic_y = self.odom.pose.pose.position.y
                 # 圆环向左移动，并且圆心在中轴线右边
-                if (self.circles_msg.pos[0].y-self.odom.pose.pose.position.y > self.range_time and
-                    self.circles_msg.pos[0].y-self.odom.pose.pose.position.y < self.range_time + 0.05
+                if (self.circles_msg.pos[0].y-self.dynamic_y > self.range_time and
+                    self.circles_msg.pos[0].y-self.dynamic_y< self.range_time + 0.05
                     and self.wait_dymatic):
-                    if (self.msg_1s_ago.pos[0].y-self.odom.pose.pose.position.y > self.range_time+ 0.05):
+                    if (self.msg_1s_ago.pos[0].y-self.dynamic_y > self.range_time+ 0.05):
                         self.go = True
                         print("圆环向左移动且可通过")
                 # 圆环向右移动，并且圆心在中轴线左边
-                elif (self.odom.pose.pose.position.y-self.circles_msg.pos[0].y > self.range_time and
-                      self.odom.pose.pose.position.y-self.circles_msg.pos[0].y < self.range_time + 0.05
-                    and self.wait_dymatic):
-                    if (self.odom.pose.pose.position.y-self.msg_1s_ago.pos[0].y > self.range_time+ 0.05):
-                        self.go = True
-                        print("圆环向右移动且可通过")
+                # elif (self.odom.pose.pose.position.y-self.circles_msg.pos[0].y > self.range_time and
+                #       self.odom.pose.pose.position.y_y-self.circles_msg.pos[0].y < self.range_time + 0.05
+                #     and self.wait_dymatic):
+                #     if (self.odom.pose.pose.position.y-self.msg_1s_ago.pos[0].y > self.range_time+ 0.05):
+                #         self.go = True
+                #         print("圆环向右移动且可通过")
 
                 if  (self.go): 
                     self.go_to(self.dymatic_circle)
-                    self.circle_start=time.clock_gettime() ##y
-                    print(f'动圆飞行--开始:{self.circle_start}')
-                    print(f'识别通过动圆:{self.dymatic_circle}')
+                    if self.wait_dymatic:
+                        self.circle_start=time.time() ##y
+                        print(f'动圆飞行--开始:{self.circle_start}')
+                        print(f'识别通过动圆:{self.dymatic_circle}')
                     self.wait_dymatic = False
                 elif self.wait_dymatic:
                     print("wait for dymatic circle")
@@ -304,6 +309,7 @@ class Algorithm:
         elif self.state == 6:
             if  self.is_close(self.odom, self.land_point,0.15):
                 self.state = 7
+                #time.sleep(self.stay_time)
                 return
             else:
                 self.go_to(self.land_point)
@@ -312,6 +318,12 @@ class Algorithm:
         # disarming
         elif self.state == 7:
             if  self.land_flag == 1:
+                self.preland_count +=1
+                if self.preland_count == 1:
+                    time.sleep(self.stay_time*10)
+                self.land_flag = 0
+               
+            if self.preland_count >1:
                 #self.set_mode_client(0,'Failsafe')
                 self.set_mode_client(0,'AUTO.LAND')
                 self.state = 8
@@ -346,13 +358,19 @@ class Algorithm:
         self.point[7] = rospy.get_param('~point8')
         self.point[8] = rospy.get_param('~point9')
         self.point[9] = rospy.get_param('~point10')
+        self.point[10] = rospy.get_param('~point11')
+        self.point[11] = rospy.get_param('~point12')
+        self.point[12] = rospy.get_param('~point13')
         self.static_circle = rospy.get_param('~circle1')
         self.led_point = rospy.get_param('~led_point')
-        self.dymatic_circle = rospy.get_param('~circle2')
         self.land_point = rospy.get_param('~land')
         self.fly_static =rospy.get_param('~fly_static')
         self.fly_dynamic =rospy.get_param('~fly_dynamic')
         self.range_time =rospy.get_param('~range_time')
+        if self.fly_dynamic == True:
+            self.dymatic_circle = rospy.get_param('~circle2')
+        else:
+            self.dymatic_circle = rospy.get_param('~circle2_nofly')
 
 if __name__ == "__main__":
     main_algorithm = Algorithm()

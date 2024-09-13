@@ -50,7 +50,7 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
   /usr/src/googletest/googletest/CMakeLists.txt:91 (include)
 This warning is for project developers.  Use -Wno-dev to suppress it.
 [0m
-[33mCMake Warning at /home/sly1/fly/build/uav_control/cmake/uav_control-genmsg.cmake:3 (message):
+[33mCMake Warning at /home/fractal-wsl/fly/build/uav_control/cmake/uav_control-genmsg.cmake:3 (message):
   Invoking generate_messages() without having added any message or service
   file before.
 

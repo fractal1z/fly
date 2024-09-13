@@ -4,7 +4,9 @@
 // #define last_img_ md_.depth_image_[!(image_cnt_ & 1)]
 //111
 #include <std_msgs/Bool.h>
+#include <cmath>
 std_msgs::Bool fly_dynamic;
+float lidar_odomz;
 //111
 void GridMap::initMap(ros::NodeHandle &nh)
 {
@@ -142,6 +144,7 @@ void GridMap::initMap(ros::NodeHandle &nh)
   unknown_pub_ = node_.advertise<sensor_msgs::PointCloud2>("/grid_map/unknown", 10);
   //111
   fly_dynamic_sub_ = node_.subscribe<std_msgs::Bool>("/fly_dynamic", 10, &GridMap::flyDynamicCallback, this);
+  lidar_sub_ = node_.subscribe<nav_msgs::Odometry>("/Odometry",10,&GridMap::lidarodomCallback, this);
   //111
   md_.occ_need_update_ = false;
   md_.local_updated_ = false;
@@ -749,6 +752,13 @@ void GridMap::odomCallback(const nav_msgs::OdometryConstPtr &odom)
   md_.has_odom_ = true;
 }
 
+//111
+void GridMap::lidarodomCallback(const nav_msgs::OdometryConstPtr &odom)
+{
+  lidar_odomz = odom->pose.pose.position.z;
+}
+//111
+
 void GridMap::cloudCallback(const sensor_msgs::PointCloud2ConstPtr &img)
 {
 
@@ -811,7 +821,13 @@ void GridMap::cloudCallback(const sensor_msgs::PointCloud2ConstPtr &img)
         fly_dynamic.data == true)
       continue;
     //111
-
+    //111
+    //点云沉降
+    if ((pt.y >=8.0 || pt.x >= 17.0) && abs(lidar_odomz-md_.camera_pos_(2))<1.0)
+    {
+      pt.z=pt.z-(lidar_odomz-md_.camera_pos_(2));
+    }
+    //111
     pt.z += 0.1;
 
     if (std::sqrt(pt.x*pt.x + pt.y*pt.y) <= 1.5)

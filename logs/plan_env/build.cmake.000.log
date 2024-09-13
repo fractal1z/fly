@@ -19,10 +19,10 @@ Not searching for unused variables given on the command line.
 [36m--[0m Check for working CXX compiler: /usr/bin/c++ - skipped
 [36m--[0m Detecting CXX compile features
 [36m--[0m Detecting CXX compile features - done
-[36m--[0m Found OpenCV: /usr (found version "4.2.0")
-[36m--[0m Using CATKIN_DEVEL_PREFIX: /home/sly1/fly/devel/.private/plan_env
-[36m--[0m Using CMAKE_PREFIX_PATH: /home/sly1/fly/devel;/home/sly1/catkin_ws/devel;/home/sly1/livox_ros_driver2/devel;/opt/ros/noetic
-[36m--[0m This workspace overlays: /home/sly1/fly/devel;/home/sly1/catkin_ws/devel;/home/sly1/livox_ros_driver2/devel;/opt/ros/noetic
+[36m--[0m Found OpenCV: /usr/local (found version "4.9.0")
+[36m--[0m Using CATKIN_DEVEL_PREFIX: /home/fractal-wsl/fly/devel/.private/plan_env
+[36m--[0m Using CMAKE_PREFIX_PATH: /home/fractal-wsl/fly/devel;/home/fractal-wsl/livox_ws/devel;/home/fractal-wsl/yolov8_ros/devel;/home/fractal-wsl/catkin_ws/devel;/home/fractal-wsl/Livox_ros_driver2/devel;/opt/ros/noetic
+[36m--[0m This workspace overlays: /home/fractal-wsl/fly/devel;/home/fractal-wsl/livox_ws/devel;/home/fractal-wsl/yolov8_ros/devel;/home/fractal-wsl/catkin_ws/devel;/home/fractal-wsl/Livox_ros_driver2/devel;/opt/ros/noetic
 [33mCMake Warning (dev) at /opt/ros/noetic/share/catkin/cmake/python.cmake:4 (find_package):
   Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
   are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
@@ -41,7 +41,7 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 [36m--[0m Using empy: /usr/lib/python3/dist-packages/em.py
 [36m--[0m Using CATKIN_ENABLE_TESTING: ON
 [36m--[0m Call enable_testing()
-[36m--[0m Using CATKIN_TEST_RESULTS_DIR: /home/sly1/fly/build/plan_env/test_results
+[36m--[0m Using CATKIN_TEST_RESULTS_DIR: /home/fractal-wsl/fly/build/plan_env/test_results
 [36m--[0m Forcing gtest/gmock from source, though one was otherwise available.
 [36m--[0m Found gtest sources under '/usr/src/googletest': gtests will be built
 [36m--[0m Found gmock sources under '/usr/src/googletest': gmock will be built
@@ -164,7 +164,7 @@ but not all the files it references.
 
 [36m--[0m Checking for module 'libusb-1.0'
 [36m--[0m   Found libusb-1.0, version 1.0.23
-[33mCMake Warning (dev) at /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[33mCMake Warning (dev) at /home/fractal-wsl/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
   The package name passed to `find_package_handle_standard_args` (USB_10)
   does not match the name of the calling package (OpenNI).  This can lead to
   problems in calling code that expects `find_package` result variables
@@ -180,7 +180,7 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 [36m--[0m Found USB_10: /usr/lib/x86_64-linux-gnu/libusb-1.0.so
 [36m--[0m Found OpenNI: /usr/lib/libOpenNI.so
 [36m--[0m OpenNI found (include: /usr/include/ni, lib: /usr/lib/libOpenNI.so)
-[33mCMake Warning (dev) at /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[33mCMake Warning (dev) at /home/fractal-wsl/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
   The package name passed to `find_package_handle_standard_args` (USB_10)
   does not match the name of the calling package (OpenNI2).  This can lead to
   problems in calling code that expects `find_package` result variables
@@ -197,7 +197,7 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 [36m--[0m OpenNI2 found (include: /usr/include/openni2, lib: /usr/lib/libOpenNI2.so)
 [0m** WARNING ** io features related to pcap will be disabled[0m
 [0m** WARNING ** io features related to png will be disabled[0m
-[33mCMake Warning (dev) at /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[33mCMake Warning (dev) at /home/fractal-wsl/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
   The package name passed to `find_package_handle_standard_args` (libusb-1.0)
   does not match the name of the calling package (PCL).  This can lead to
   problems in calling code that expects `find_package` result variables
@@ -209,9 +209,9 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
   CMakeLists.txt:22 (find_package)
 This warning is for project developers.  Use -Wno-dev to suppress it.
 [0m
-[36m--[0m Found libusb-1.0: /usr/include
 [0m** WARNING ** io features related to libusb-1.0 will be disabled[0m
-[33mCMake Warning (dev) at /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[36m--[0m Found libusb-1.0: /usr/include
+[33mCMake Warning (dev) at /home/fractal-wsl/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
   The package name passed to `find_package_handle_standard_args` (USB_10)
   does not match the name of the calling package (OpenNI).  This can lead to
   problems in calling code that expects `find_package` result variables
@@ -225,7 +225,7 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 This warning is for project developers.  Use -Wno-dev to suppress it.
 [0m
 [36m--[0m OpenNI found (include: /usr/include/ni, lib: /usr/lib/libOpenNI.so)
-[33mCMake Warning (dev) at /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[33mCMake Warning (dev) at /home/fractal-wsl/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
   The package name passed to `find_package_handle_standard_args` (USB_10)
   does not match the name of the calling package (OpenNI2).  This can lead to
   problems in calling code that expects `find_package` result variables
@@ -258,7 +258,7 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 [0m
 [36m--[0m Found Qhull: optimized;/usr/lib/x86_64-linux-gnu/libqhull.so;debug;/usr/lib/x86_64-linux-gnu/libqhull.so
 [36m--[0m QHULL found (include: /usr/include, lib: optimized;/usr/lib/x86_64-linux-gnu/libqhull.so;debug;/usr/lib/x86_64-linux-gnu/libqhull.so)
-[33mCMake Warning (dev) at /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[33mCMake Warning (dev) at /home/fractal-wsl/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
   The package name passed to `find_package_handle_standard_args` (USB_10)
   does not match the name of the calling package (OpenNI).  This can lead to
   problems in calling code that expects `find_package` result variables
@@ -273,7 +273,7 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 [0m
 [36m--[0m OpenNI found (include: /usr/include/ni, lib: /usr/lib/libOpenNI.so)
 [36m--[0m looking for PCL_COMMON
-[33mCMake Warning (dev) at /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[33mCMake Warning (dev) at /home/fractal-wsl/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
   The package name passed to `find_package_handle_standard_args` (PCL_COMMON)
   does not match the name of the calling package (PCL).  This can lead to
   problems in calling code that expects `find_package` result variables
@@ -285,7 +285,7 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 [0m
 [36m--[0m Found PCL_COMMON: /usr/lib/x86_64-linux-gnu/libpcl_common.so
 [36m--[0m looking for PCL_KDTREE
-[33mCMake Warning (dev) at /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[33mCMake Warning (dev) at /home/fractal-wsl/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
   The package name passed to `find_package_handle_standard_args` (PCL_KDTREE)
   does not match the name of the calling package (PCL).  This can lead to
   problems in calling code that expects `find_package` result variables
@@ -297,7 +297,7 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 [0m
 [36m--[0m Found PCL_KDTREE: /usr/lib/x86_64-linux-gnu/libpcl_kdtree.so
 [36m--[0m looking for PCL_OCTREE
-[33mCMake Warning (dev) at /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[33mCMake Warning (dev) at /home/fractal-wsl/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
   The package name passed to `find_package_handle_standard_args` (PCL_OCTREE)
   does not match the name of the calling package (PCL).  This can lead to
   problems in calling code that expects `find_package` result variables
@@ -309,7 +309,7 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 [0m
 [36m--[0m Found PCL_OCTREE: /usr/lib/x86_64-linux-gnu/libpcl_octree.so
 [36m--[0m looking for PCL_SEARCH
-[33mCMake Warning (dev) at /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[33mCMake Warning (dev) at /home/fractal-wsl/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
   The package name passed to `find_package_handle_standard_args` (PCL_SEARCH)
   does not match the name of the calling package (PCL).  This can lead to
   problems in calling code that expects `find_package` result variables
@@ -321,7 +321,7 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 [0m
 [36m--[0m Found PCL_SEARCH: /usr/lib/x86_64-linux-gnu/libpcl_search.so
 [36m--[0m looking for PCL_SAMPLE_CONSENSUS
-[33mCMake Warning (dev) at /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[33mCMake Warning (dev) at /home/fractal-wsl/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
   The package name passed to `find_package_handle_standard_args`
   (PCL_SAMPLE_CONSENSUS) does not match the name of the calling package
   (PCL).  This can lead to problems in calling code that expects
@@ -334,7 +334,7 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 [0m
 [36m--[0m Found PCL_SAMPLE_CONSENSUS: /usr/lib/x86_64-linux-gnu/libpcl_sample_consensus.so
 [36m--[0m looking for PCL_FILTERS
-[33mCMake Warning (dev) at /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[33mCMake Warning (dev) at /home/fractal-wsl/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
   The package name passed to `find_package_handle_standard_args`
   (PCL_FILTERS) does not match the name of the calling package (PCL).  This
   can lead to problems in calling code that expects `find_package` result
@@ -346,7 +346,7 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 [0m
 [36m--[0m Found PCL_FILTERS: /usr/lib/x86_64-linux-gnu/libpcl_filters.so
 [36m--[0m looking for PCL_2D
-[33mCMake Warning (dev) at /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[33mCMake Warning (dev) at /home/fractal-wsl/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
   The package name passed to `find_package_handle_standard_args` (PCL_2D)
   does not match the name of the calling package (PCL).  This can lead to
   problems in calling code that expects `find_package` result variables
@@ -357,8 +357,7 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 This warning is for project developers.  Use -Wno-dev to suppress it.
 [0m
 [36m--[0m Found PCL_2D: /usr/include/pcl-1.10
-[36m--[0m looking for PCL_GEOMETRY
-[33mCMake Warning (dev) at /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[33mCMake Warning (dev) at /home/fractal-wsl/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
   The package name passed to `find_package_handle_standard_args`
   (PCL_GEOMETRY) does not match the name of the calling package (PCL).  This
   can lead to problems in calling code that expects `find_package` result
@@ -368,9 +367,7 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
   CMakeLists.txt:22 (find_package)
 This warning is for project developers.  Use -Wno-dev to suppress it.
 [0m
-[36m--[0m Found PCL_GEOMETRY: /usr/include/pcl-1.10
-[36m--[0m looking for PCL_IO
-[33mCMake Warning (dev) at /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[33mCMake Warning (dev) at /home/fractal-wsl/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
   The package name passed to `find_package_handle_standard_args` (PCL_IO)
   does not match the name of the calling package (PCL).  This can lead to
   problems in calling code that expects `find_package` result variables
@@ -380,9 +377,12 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
   CMakeLists.txt:22 (find_package)
 This warning is for project developers.  Use -Wno-dev to suppress it.
 [0m
+[36m--[0m looking for PCL_GEOMETRY
+[36m--[0m Found PCL_GEOMETRY: /usr/include/pcl-1.10
+[36m--[0m looking for PCL_IO
 [36m--[0m Found PCL_IO: /usr/lib/x86_64-linux-gnu/libpcl_io.so
 [36m--[0m looking for PCL_FEATURES
-[33mCMake Warning (dev) at /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[33mCMake Warning (dev) at /home/fractal-wsl/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
   The package name passed to `find_package_handle_standard_args`
   (PCL_FEATURES) does not match the name of the calling package (PCL).  This
   can lead to problems in calling code that expects `find_package` result
@@ -394,7 +394,7 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 [0m
 [36m--[0m Found PCL_FEATURES: /usr/lib/x86_64-linux-gnu/libpcl_features.so
 [36m--[0m looking for PCL_ML
-[33mCMake Warning (dev) at /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[33mCMake Warning (dev) at /home/fractal-wsl/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
   The package name passed to `find_package_handle_standard_args` (PCL_ML)
   does not match the name of the calling package (PCL).  This can lead to
   problems in calling code that expects `find_package` result variables
@@ -406,7 +406,7 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 [0m
 [36m--[0m Found PCL_ML: /usr/lib/x86_64-linux-gnu/libpcl_ml.so
 [36m--[0m looking for PCL_SEGMENTATION
-[33mCMake Warning (dev) at /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[33mCMake Warning (dev) at /home/fractal-wsl/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
   The package name passed to `find_package_handle_standard_args`
   (PCL_SEGMENTATION) does not match the name of the calling package (PCL).
   This can lead to problems in calling code that expects `find_package`
@@ -418,7 +418,7 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 [0m
 [36m--[0m Found PCL_SEGMENTATION: /usr/lib/x86_64-linux-gnu/libpcl_segmentation.so
 [36m--[0m looking for PCL_VISUALIZATION
-[33mCMake Warning (dev) at /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[33mCMake Warning (dev) at /home/fractal-wsl/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
   The package name passed to `find_package_handle_standard_args`
   (PCL_VISUALIZATION) does not match the name of the calling package (PCL).
   This can lead to problems in calling code that expects `find_package`
@@ -430,7 +430,7 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 [0m
 [36m--[0m Found PCL_VISUALIZATION: /usr/lib/x86_64-linux-gnu/libpcl_visualization.so
 [36m--[0m looking for PCL_SURFACE
-[33mCMake Warning (dev) at /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[33mCMake Warning (dev) at /home/fractal-wsl/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
   The package name passed to `find_package_handle_standard_args`
   (PCL_SURFACE) does not match the name of the calling package (PCL).  This
   can lead to problems in calling code that expects `find_package` result
@@ -442,7 +442,7 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 [0m
 [36m--[0m Found PCL_SURFACE: /usr/lib/x86_64-linux-gnu/libpcl_surface.so
 [36m--[0m looking for PCL_REGISTRATION
-[33mCMake Warning (dev) at /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[33mCMake Warning (dev) at /home/fractal-wsl/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
   The package name passed to `find_package_handle_standard_args`
   (PCL_REGISTRATION) does not match the name of the calling package (PCL).
   This can lead to problems in calling code that expects `find_package`
@@ -454,7 +454,7 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 [0m
 [36m--[0m Found PCL_REGISTRATION: /usr/lib/x86_64-linux-gnu/libpcl_registration.so
 [36m--[0m looking for PCL_KEYPOINTS
-[33mCMake Warning (dev) at /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[33mCMake Warning (dev) at /home/fractal-wsl/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
   The package name passed to `find_package_handle_standard_args`
   (PCL_KEYPOINTS) does not match the name of the calling package (PCL).  This
   can lead to problems in calling code that expects `find_package` result
@@ -466,7 +466,7 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 [0m
 [36m--[0m Found PCL_KEYPOINTS: /usr/lib/x86_64-linux-gnu/libpcl_keypoints.so
 [36m--[0m looking for PCL_TRACKING
-[33mCMake Warning (dev) at /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[33mCMake Warning (dev) at /home/fractal-wsl/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
   The package name passed to `find_package_handle_standard_args`
   (PCL_TRACKING) does not match the name of the calling package (PCL).  This
   can lead to problems in calling code that expects `find_package` result
@@ -478,7 +478,7 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 [0m
 [36m--[0m Found PCL_TRACKING: /usr/lib/x86_64-linux-gnu/libpcl_tracking.so
 [36m--[0m looking for PCL_RECOGNITION
-[33mCMake Warning (dev) at /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[33mCMake Warning (dev) at /home/fractal-wsl/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
   The package name passed to `find_package_handle_standard_args`
   (PCL_RECOGNITION) does not match the name of the calling package (PCL).
   This can lead to problems in calling code that expects `find_package`
@@ -490,7 +490,7 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 [0m
 [36m--[0m Found PCL_RECOGNITION: /usr/lib/x86_64-linux-gnu/libpcl_recognition.so
 [36m--[0m looking for PCL_STEREO
-[33mCMake Warning (dev) at /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[33mCMake Warning (dev) at /home/fractal-wsl/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
   The package name passed to `find_package_handle_standard_args` (PCL_STEREO)
   does not match the name of the calling package (PCL).  This can lead to
   problems in calling code that expects `find_package` result variables
@@ -502,7 +502,7 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 [0m
 [36m--[0m Found PCL_STEREO: /usr/lib/x86_64-linux-gnu/libpcl_stereo.so
 [36m--[0m looking for PCL_APPS
-[33mCMake Warning (dev) at /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[33mCMake Warning (dev) at /home/fractal-wsl/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
   The package name passed to `find_package_handle_standard_args` (PCL_APPS)
   does not match the name of the calling package (PCL).  This can lead to
   problems in calling code that expects `find_package` result variables
@@ -514,7 +514,7 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 [0m
 [36m--[0m Found PCL_APPS: /usr/lib/x86_64-linux-gnu/libpcl_apps.so
 [36m--[0m looking for PCL_IN_HAND_SCANNER
-[33mCMake Warning (dev) at /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[33mCMake Warning (dev) at /home/fractal-wsl/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
   The package name passed to `find_package_handle_standard_args`
   (PCL_IN_HAND_SCANNER) does not match the name of the calling package (PCL).
   This can lead to problems in calling code that expects `find_package`
@@ -526,7 +526,7 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 [0m
 [36m--[0m Found PCL_IN_HAND_SCANNER: /usr/include/pcl-1.10
 [36m--[0m looking for PCL_POINT_CLOUD_EDITOR
-[33mCMake Warning (dev) at /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[33mCMake Warning (dev) at /home/fractal-wsl/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
   The package name passed to `find_package_handle_standard_args`
   (PCL_POINT_CLOUD_EDITOR) does not match the name of the calling package
   (PCL).  This can lead to problems in calling code that expects
@@ -539,7 +539,7 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 [0m
 [36m--[0m Found PCL_POINT_CLOUD_EDITOR: /usr/include/pcl-1.10
 [36m--[0m looking for PCL_OUTOFCORE
-[33mCMake Warning (dev) at /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[33mCMake Warning (dev) at /home/fractal-wsl/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
   The package name passed to `find_package_handle_standard_args`
   (PCL_OUTOFCORE) does not match the name of the calling package (PCL).  This
   can lead to problems in calling code that expects `find_package` result
@@ -551,7 +551,7 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 [0m
 [36m--[0m Found PCL_OUTOFCORE: /usr/lib/x86_64-linux-gnu/libpcl_outofcore.so
 [36m--[0m looking for PCL_PEOPLE
-[33mCMake Warning (dev) at /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[33mCMake Warning (dev) at /home/fractal-wsl/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
   The package name passed to `find_package_handle_standard_args` (PCL_PEOPLE)
   does not match the name of the calling package (PCL).  This can lead to
   problems in calling code that expects `find_package` result variables
@@ -563,6 +563,6 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 [0m
 [36m--[0m Found PCL_PEOPLE: /usr/lib/x86_64-linux-gnu/libpcl_people.so
 [36m--[0m Found PCL: pcl_common;pcl_kdtree;pcl_octree;pcl_search;pcl_sample_consensus;pcl_filters;pcl_io;pcl_features;pcl_ml;pcl_segmentation;pcl_visualization;pcl_surface;pcl_registration;pcl_keypoints;pcl_tracking;pcl_recognition;pcl_stereo;pcl_apps;pcl_outofcore;pcl_people;/usr/lib/x86_64-linux-gnu/libboost_system.so;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;/usr/lib/x86_64-linux-gnu/libboost_iostreams.so;/usr/lib/x86_64-linux-gnu/libboost_regex.so;optimized;/usr/lib/x86_64-linux-gnu/libqhull.so;debug;/usr/lib/x86_64-linux-gnu/libqhull.so;/usr/lib/libOpenNI.so;/usr/lib/libOpenNI2.so;vtkChartsCore;vtkCommonColor;vtkCommonCore;vtksys;vtkCommonDataModel;vtkCommonMath;vtkCommonMisc;vtkCommonSystem;vtkCommonTransforms;vtkCommonExecutionModel;vtkFiltersGeneral;vtkCommonComputationalGeometry;vtkFiltersCore;vtkInfovisCore;vtkFiltersExtraction;vtkFiltersStatistics;vtkImagingFourier;vtkImagingCore;vtkalglib;vtkRenderingContext2D;vtkRenderingCore;vtkFiltersGeometry;vtkFiltersSources;vtkRenderingFreeType;/usr/lib/x86_64-linux-gnu/libfreetype.so;/usr/lib/x86_64-linux-gnu/libz.so;vtkFiltersModeling;vtkImagingSources;vtkInteractionStyle;vtkInteractionWidgets;vtkFiltersHybrid;vtkImagingColor;vtkImagingGeneral;vtkImagingHybrid;vtkIOImage;vtkDICOMParser;vtkmetaio;/usr/lib/x86_64-linux-gnu/libjpeg.so;/usr/lib/x86_64-linux-gnu/libpng.so;/usr/lib/x86_64-linux-gnu/libtiff.so;vtkRenderingAnnotation;vtkRenderingVolume;vtkIOXML;vtkIOCore;vtkIOXMLParser;/usr/lib/x86_64-linux-gnu/libexpat.so;vtkIOGeometry;vtkIOLegacy;vtkIOPLY;vtkRenderingLOD;vtkViewsContext2D;vtkViewsCore;vtkRenderingContextOpenGL2;vtkRenderingOpenGL2;FLANN::FLANN (Required is at least version "1.7")
-[36m--[0m Configuring done (2.6s)
+[36m--[0m Configuring done (10.7s)
 [36m--[0m Generating done (0.1s)
-[36m--[0m Build files have been written to: /home/sly1/fly/build/plan_env
+[36m--[0m Build files have been written to: /home/fractal-wsl/fly/build/plan_env

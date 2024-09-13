@@ -25,7 +25,7 @@ double xmax2, ymax2, zmax2, xmin2, ymin2, zmin2;
 
 void cloud_cb(const sensor_msgs::PointCloud2ConstPtr &cloud_msg)
 {  
-    if (state.data==3||state.data==5)
+    if (state.data==3||state.data==4||state.data==5)
     {
         double xmax, ymax, zmax, xmin, ymin, zmin;
         if(state.data == 3)
@@ -33,7 +33,7 @@ void cloud_cb(const sensor_msgs::PointCloud2ConstPtr &cloud_msg)
             xmax=xmax1; ymax=ymax1; zmax=zmax1;
             xmin=xmin1; ymin=ymin1; zmin=zmin1;
         }
-        else if(state.data == 5)
+        else if(state.data >= 4)
         {
             xmax=xmax2; ymax=ymax2; zmax=zmax2;
             xmin=xmin2; ymin=ymin2; zmin=zmin2;       

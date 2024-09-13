@@ -8,8 +8,8 @@ from std_msgs.msg import Int8
 # ROS
 import rospy
 
-# from ius_msgs.msg import Trajectory
-from trajectory_generator.msg import Trajectory
+from ius_msgs.msg import Trajectory
+# from trajectory_generator.msg import Trajectory
 from nav_msgs.msg import Odometry
 from mavros_msgs.msg import AttitudeTarget
 from mavros_msgs.msg import State
@@ -127,7 +127,7 @@ class Traj():
         return np.array(poss), np.array(yaws), ts
 
 
-def quat_mul(q1: np.array, q2: np.array):
+def quat_mul(q1: np.array, q2: np.array):#四元数乘法
     w1, x1, y1, z1 = q1
     w2, x2, y2, z2 = q2
     q = np.array([
@@ -142,7 +142,7 @@ def quat_mul(q1: np.array, q2: np.array):
 # v: [vx, vy, vz]
 
 
-def quat_rot_vector(q: np.array, v: np.array):
+def quat_rot_vector(q: np.array, v: np.array):#速度转坐标系
     q = q / np.linalg.norm(q)
     q_inv = np.array([q[0], -q[1], -q[2], -q[3]])
     qv = quat_mul(quat_mul(q, np.concatenate([[0], v])), q_inv)
@@ -152,85 +152,88 @@ def quat_rot_vector(q: np.array, v: np.array):
 trajectory = None
 rospy.init_node("tracking")
 
-auto_offboard = rospy.get_param('~auto_offboard', True)
+auto_offboard = rospy.get_param('~auto_offboard', True)  #自动解锁
 
 setpoint_raw_pub = rospy.Publisher(
-    "/mavros/setpoint_raw/attitude", AttitudeTarget, queue_size=1, tcp_nodelay=True)
+    "/mavros/setpoint_raw/attitude", AttitudeTarget, queue_size=1, tcp_nodelay=True)#发布角速度
 
 mavros_state = None
 
 
-def mavros_state_cb(msg: State):
+def mavros_state_cb(msg: State):#mavrso状态获取
     global mavros_state
     mavros_state = msg
 
 
 rospy.Subscriber("/mavros/state", State, mavros_state_cb,
                  queue_size=1, tcp_nodelay=True)
-arming_client = rospy.ServiceProxy("/mavros/cmd/arming", CommandBool)
-set_mode_client = rospy.ServiceProxy("/mavros/set_mode", SetMode)
+arming_client = rospy.ServiceProxy("/mavros/cmd/arming", CommandBool)#解锁服务
+set_mode_client = rospy.ServiceProxy("/mavros/set_mode", SetMode)#设置模式
 
-quad = QuadrotorSimpleModel(BASEPATH+'quad/quad_px4.yaml')
+quad = QuadrotorSimpleModel(BASEPATH+'quad/quad_px4.yaml')#无人机参数获取，简单模型
 # quad = QuadrotorSimpleModel(BASEPATH+'quad/quad_sim.yaml')
-tracker = TrackerMPC(quad)
+tracker = TrackerMPC(quad)#mpc加载简化无人机模型
 
 tracker.define_opt()
 # tracker.load_so(BASEPATH+"generated/track_mpc.so")
 
 
-def odom_cb(msg: Odometry):
+def odom_cb(msg: Odometry):#100hz
     global mavros_state, auto_offboard, state_machine
 
-    if mavros_state == None or not mavros_state.connected:
+    if mavros_state == None or not mavros_state.connected: #初始状态检查
         return
 
-    u = AttitudeTarget()
-    u.type_mask = AttitudeTarget.IGNORE_ATTITUDE
+    u = AttitudeTarget() #初始化 AttitudeTarget 消息
+    u.type_mask = AttitudeTarget.IGNORE_ATTITUDE#只使用推力和角速度控制。
     u.body_rate.x = 0
     u.body_rate.y = 0
     u.body_rate.z = 0
     u.thrust = 0
-    # if True and mavros_state.mode != "OFFBOARD":
-    #     set_mode_client.call(0, "OFFBOARD")
+    #设置无人机模式和解锁
+    # if True and mavros_state.mode != "OFFBOARD": #无人机是否处于 OFFBOARD 模式，如果不是，切换模式为 OFFBOARD
+    #     set_mode_client.call(0, "OFFBOARD")  
     #     setpoint_raw_pub.publish(u)
     #     return
-    # if True and not mavros_state.armed:
+    # if True and not mavros_state.armed:如果无人机没有解锁，尝试解锁
     #     arming_client.call(True)
     #     setpoint_raw_pub.publish(u)
     #     return
     # print(len(trajectory._poss) == 0)
-    if trajectory != None and len(trajectory._poss) != 0:
+    if trajectory != None and len(trajectory._poss) != 0:#这里检查 trajectory不为空且轨迹点不为空。
         q = -np.array([msg.pose.pose.orientation.w, msg.pose.pose.orientation.x,
-                      msg.pose.pose.orientation.y, msg.pose.pose.orientation.z])
+                      msg.pose.pose.orientation.y, msg.pose.pose.orientation.z])#无人机当前姿态
         # q = np.array([1,0,0,0])
         v_b = np.array([msg.twist.twist.linear.x,
-                       msg.twist.twist.linear.y, msg.twist.twist.linear.z])
-        v = quat_rot_vector(q, v_b)  # v in inertial frame
+                       msg.twist.twist.linear.y, msg.twist.twist.linear.z])#机体系速度
+        v = quat_rot_vector(q, v_b)  # v in inertial frame#惯性系速度world
         # w = np.array([msg.twist.twist.angular.x, msg.twist.twist.angular.y, msg.twist.twist.angular.z])
         p = np.array([msg.pose.pose.position.x,
                      msg.pose.pose.position.y, msg.pose.pose.position.z])
 
-        x0 = np.concatenate([p, v, q])
+        x0 = np.concatenate([p, v, q])#初始状态
 
-        poss, yaws, ts = trajectory.sample(p, 0.1, 5)
+        poss, yaws, ts = trajectory.sample(p, 0.1, 5)#轨迹采样
         print("##############################################")
         print(poss)
         # print(p, v, q)
-        res = tracker.solve(x0, poss.reshape(-1), yaws.reshape(-1))
-        x = res['x'].full().flatten()
+        res = tracker.solve(x0, poss.reshape(-1), yaws.reshape(-1))#调用控制器求解最优解
+        x = res['x'].full().flatten()#Tt 是推力值，wx、wy、wz 是绕 x、y、z 轴的角速度
         Tt = x[tracker._Herizon*10+0]
         wx = x[tracker._Herizon*10+1]
         wy = x[tracker._Herizon*10+2]
         wz = x[tracker._Herizon*10+3]
+
+        # 推力和角速度控制
         u.type_mask = AttitudeTarget.IGNORE_ATTITUDE
         u.body_rate.x = wx
         u.body_rate.y = wy
         u.body_rate.z = wz
-        u.thrust = min(Tt/quad._a_z_max, 0.71)
+        u.thrust = min(Tt/quad._a_z_max, 0.71)#限制最大推力
         # u.thrust = 0
-    if state_machine.data < 9:
+    if state_machine.data < 9:#状态机控制
         u.thrust = min(u.thrust, 0.71)
-        setpoint_raw_pub.publish(u)
+        setpoint_raw_pub.publish(u) #/mavros/setpoint_raw/attitude
         print(u.thrust, u.body_rate.x, u.body_rate.y, u.body_rate.z)
 
 
@@ -243,9 +246,9 @@ def state_callback(msg: Int8):
     global state_machine
     state_machine = msg
 
-rospy.Subscriber("~odom", Odometry, odom_cb, queue_size=1, tcp_nodelay=True)
+rospy.Subscriber("~odom", Odometry, odom_cb, queue_size=1, tcp_nodelay=True)#回调函数，位姿
 rospy.Subscriber("~track_traj", Trajectory, track_traj_cb,
-                 queue_size=1, tcp_nodelay=True)
+                 queue_size=1, tcp_nodelay=True)#回调函数，
 rospy.Subscriber('/state_machine', Int8, state_callback)
 
 rospy.spin()

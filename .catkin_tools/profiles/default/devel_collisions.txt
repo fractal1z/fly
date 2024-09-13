@@ -1,2 +1,5 @@
 /home/fractal/fly/devel/./cmake.lock 2153
-/home/sly1/fly/devel/./cmake.lock 278
+/home/sly1/fly/devel/./cmake.lock 373
+/home/sly3/fly/devel/./cmake.lock 220
+/home/sly2/fly/devel/./cmake.lock 200
+/home/fractal-wsl/fly/devel/./cmake.lock 47

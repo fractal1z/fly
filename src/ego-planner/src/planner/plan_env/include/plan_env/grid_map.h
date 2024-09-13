@@ -199,6 +199,7 @@ private:
   void odomCallback(const nav_msgs::OdometryConstPtr& odom);
   //111
   void flyDynamicCallback(const std_msgs::BoolConstPtr &msg);
+  void lidarodomCallback(const nav_msgs::OdometryConstPtr& odom);
   //111
   // update occupancy by raycasting
   void updateOccupancyCallback(const ros::TimerEvent& /*event*/);
@@ -234,6 +235,7 @@ private:
   ros::Subscriber indep_cloud_sub_, indep_odom_sub_;
   //111
   ros::Subscriber fly_dynamic_sub_;
+  ros::Subscriber lidar_sub_;
   //111
   ros::Publisher map_pub_, map_inf_pub_;
   ros::Publisher unknown_pub_;

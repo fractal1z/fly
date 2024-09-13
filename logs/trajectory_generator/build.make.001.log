@@ -1,18 +1,18 @@
-[  0%] Built target std_msgs_generate_messages_py
-[  0%] Built target std_msgs_generate_messages_cpp
+[  0%] Built target quadrotor_msgs_generate_messages_py
 [  0%] Built target std_msgs_generate_messages_eus
-[  0%] Built target quadrotor_msgs_generate_messages_cpp
 [  0%] Built target quadrotor_msgs_generate_messages_eus
-[  0%] Built target quadrotor_msgs_generate_messages_lisp
+[  0%] Built target std_msgs_generate_messages_cpp
+[  0%] Built target quadrotor_msgs_generate_messages_cpp
+[  0%] Built target std_msgs_generate_messages_py
 [  0%] Built target std_msgs_generate_messages_lisp
+[  0%] Built target quadrotor_msgs_generate_messages_lisp
 [  0%] Built target std_msgs_generate_messages_nodejs
 [  0%] Built target quadrotor_msgs_generate_messages_nodejs
-[  0%] Built target quadrotor_msgs_generate_messages_py
 [ 30%] Built target trajectory_generator_node
 [ 30%] Built target _trajectory_generator_generate_messages_check_deps_Trajectory
-[ 50%] Built target trajectory_generator_generate_messages_py
-[ 60%] Built target trajectory_generator_generate_messages_nodejs
-[ 70%] Built target trajectory_generator_generate_messages_cpp
-[100%] Built target trajectory_generator_generate_messages_lisp
-[100%] Built target trajectory_generator_generate_messages_eus
+[ 60%] Built target trajectory_generator_generate_messages_py
+[ 60%] Built target trajectory_generator_generate_messages_cpp
+[ 80%] Built target trajectory_generator_generate_messages_eus
+[ 90%] Built target trajectory_generator_generate_messages_lisp
+[100%] Built target trajectory_generator_generate_messages_nodejs
 [100%] Built target trajectory_generator_generate_messages

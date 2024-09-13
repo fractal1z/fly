@@ -26,7 +26,6 @@ int traj_id_;
 // yaw control
 double last_yaw_, last_yaw_dot_;
 double time_forward_;
-
 void bsplineCallback(ego_planner::BsplineConstPtr msg)
 {
   // parse pos traj

@@ -47,7 +47,7 @@ class WaypointMem:
         with open(self.filename, 'w') as yaml_file:
             yaml.dump(data, yaml_file, default_flow_style=True)
         rospy.loginfo(f"Point {name} saved to {self.filename}")
-
+    
     def run(self):
         while not rospy.is_shutdown():
             print("\n\n-----------------------------------------------------------------------------")
